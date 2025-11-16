@@ -1,0 +1,22 @@
+# Backend Overview
+
+[cite_start]The backend is a modular, AI-driven system for data privacy risk assessment, SDE detection, and compliance reporting[cite: 1, 112]. [cite_start]It powers the end-to-end workflow for scanning, detection, risk scoring, and reporting[cite: 2, 113].
+
+## Key Components
+- [cite_start]**Scanning Engine**: Connects to databases, files, and cloud sources to scan for Sensitive Data Elements (SDEs) using regex and context-aware detection[cite: 3, 114].
+- [cite_start]**Risk Management**: Calculates risk scores, generates compliance reports (GDPR, CCPA, DPDP), and manages risk assessment history[cite: 4, 115].
+- [cite_start]**Reporting**: Exports results in JSON, CSV, Excel, and generates visual and executive summary reports[cite: 5, 116].
+- [cite_start]**CLI**: Command-line interface for running scans, generating reports, and managing pipelines[cite: 7, 118].
+
+## Features
+- [cite_start]Multi-connector support: SQLite, MySQL, PostgreSQL, CSV, Excel, JSON, GCS, BigQuery, AWS S3 [cite: 8, 119]
+- [cite_start]Advanced pattern detection: Built-in and custom regex, context validation [cite: 8, 119]
+- [cite_start]Compliance: GDPR, CCPA, DPDP Act reporting [cite: 8, 119]
+- [cite_start]Risk scoring: Weighted scoring for high/medium/low/critical findings [cite: 8, 119]
+- [cite_start]Export: TXT, HTML, CSV, JSON, Excel [cite: 8, 119]
+- [cite_start]Integration: Can be used as a library, CLI, or via API [cite: 8, 119]
+
+## Usage
+- [cite_start]Configure sources in YAML or via CLI [cite: 8, 119]
+- [cite_start]Run scans and generate reports via CLI or API [cite: 8, 119]
+- [cite_start]Integrate with frontend for live reporting and dashboards [cite: 8, 119]

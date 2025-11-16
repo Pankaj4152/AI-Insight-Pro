@@ -1,0 +1,39 @@
+User Management System in AI-Insight-Pro
+Overview of User Authentication and Profile Management
+The User Management System in AI-Insight-Pro ensures secure access to the platform and allows users to manage their personal and company information. It provides robust authentication, session handling, and profile customization features.
+
+1. User Authentication & Onboarding
+Login Process
+Entry Point: Users access the application homepage and are directed to the login interface.
+Registration: New users are required to provide the following information to create an account:
+- Full Name: For identification within the platform and reports.
+- Username: A unique identifier for logging in.
+- Company Name: For industry-specific analysis and reporting.
+- Email Address: For communication, notifications, and password recovery.
+- Password: A secure password for account access.
+Login Verification: The system supports multi-factor authentication (MFA) for enhanced security during the login process.
+
+User Session Management
+Unique Key Generation: Upon successful login, a unique session key (JWT token) is generated to maintain the user's authenticated state.
+Session Tracking: User activities are tracked using their unique identifier and session key for security auditing and compliance.
+Multi-session Support: Users can access their account from multiple devices simultaneously using the same credentials.
+
+Post-Login Navigation
+Dashboard: The primary welcome screen providing user-specific information, key metrics, and an overview of their data privacy posture.
+Navbar Menu: A persistent navigation bar offering access to various modules like Connect, Dashboard, Risk Page, SDE Catalogue, and Report Preview.
+User Profile: A dedicated section for users to access and modify their account settings and preferences.
+
+2. User Profile Management
+Profile Creation
+Users can create and update their profile information, which includes:
+- Contact details
+- Company details
+- Industry information
+- Country of operation
+Company Association
+Users are linked to their respective organizations, which is crucial for multi-tenant support and industry-specific data analysis.
+Role Assignment
+User Permissions: Roles are assigned to users to define their permissions and access levels within the platform. This ensures that users only have access to the functionalities and data relevant to their responsibilities.
+Examples: Admin (Full system access and management capabilities), Compliance Officer (Monitor and manage compliance across multiple clients).
+Activity Tracking
+All significant user actions and activities within the platform are logged and monitored. This provides an audit trail for security, compliance, and troubleshooting purposes.

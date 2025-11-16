@@ -1,0 +1,435 @@
+/* src/Css/Contact.css */
+
+.contact-container {
+  background-color: var(--body-background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  font-family: var(--font-inter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Hero Section */
+.contact-hero-section {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 6rem 0;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.contact-hero-content {
+  max-width: 7xl; /* This should be handled by a max-width variable if available, otherwise fixed px */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.contact-title {
+  text-align: center;
+  margin-left: 0 !important;
+  width: 100%;
+  font-size: 2.5rem;
+  font-family: var(--font-family);
+  color: var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lucide-contact-icon {
+  color: var(--primary);
+  stroke-width: 2;
+  vertical-align: middle;
+  margin-right: 0.3rem;
+}
+
+.contact-description {
+  font-size: 1.25rem; /* Adjusted for hero subtitle */
+  color: var(--description-color);
+  max-width: 48rem; /* Equivalent to max-w-3xl */
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Main Content Grid */
+.main-content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 3rem;
+}
+
+/* Contact Card Styling */
+.contact-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem;
+  border: 1.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px var(--primary);
+}
+
+.card-header {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-icon {
+  font-size: 1.5rem; /* For Unicode icons */
+  color: var(--navbar-logo-color-start);
+  flex-shrink: 0;
+}
+
+.card-title {
+  font-family: var(--font-alatsi);
+  font-size: 1.8rem;
+  color: var(--heading-color);
+  margin: 0; /* Reset margin from h tags */
+}
+
+.card-description {
+  font-size: 0.9rem;
+  color: var(--description-color);
+  margin-top: 0.5rem;
+}
+
+.card-content {
+  flex-grow: 1; /* Allows content to fill space */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Location Card Specifics */
+.location-card {
+  grid-column: span 2; /* Takes 2 columns on larger screens */
+}
+
+.address-block {
+  background-color: rgba(0,0,0,0.05); /* Muted/50 equivalent */
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.address-block h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: var(--heading-color);
+}
+
+.address-block p {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--description-color);
+}
+
+.info-icon {
+  color: var(--primary);
+  margin-right: 0.3rem;
+  font-size: 1.1rem;
+}
+
+.global-locations-heading {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+}
+
+.global-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.location-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.active-badge {
+  background-color: rgba(0, 128, 0, 0.05); /* bg-green-50 */
+  border-color: rgba(0, 128, 0, 0.2); /* border-green-200 */
+  color: var(--text-color);
+}
+.active-badge .badge-status {
+  background-color: rgba(0, 128, 0, 0.1); /* bg-green-100 */
+  color: #25b365; /* text-green-800 */
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.coming-soon-badge {
+  background-color: rgba(0, 0, 255, 0.05); /* bg-blue-50 */
+  border-color: rgba(0, 0, 255, 0.2); /* border-blue-200 */
+  color: var(--text-color);
+}
+.coming-soon-badge .badge-status {
+  border: 1px solid rgba(0, 0, 255, 0.3); /* border-blue-300 */
+  color: #1681fc; /* text-blue-700 */
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+/* Quick Actions Card Specifics */
+.quick-actions-card .card-header {
+  text-align: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.quick-actions-card .card-icon {
+  margin-bottom: 0.5rem;
+}
+.quick-actions-card .card-title {
+  font-size: 2rem;
+}
+
+.button-group-vertical {
+  gap: 1rem;
+}
+
+.custom-button {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.primary-button {
+  background: linear-gradient(to right, var(--signup-button-background-start), var(--signup-button-background-end));
+  color: var(--signup-button-text-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.secondary-button {
+  background: var(--muted);
+  color: var(--foreground);
+  border: 1.5px solid var(--border);
+}
+.secondary-button:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.button-icon {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Contact Info Grid */
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.contact-info-grid .contact-card .card-header {
+  justify-content: center; /* Center title */
+  gap: 0; /* Remove gap if no icon in header */
+  margin-bottom: 1rem;
+}
+.contact-info-grid .contact-card .card-title {
+  font-size: 1.25rem; /* Smaller title for these cards */
+}
+
+.contact-info-grid .contact-card .card-content {
+  gap: 0.75rem;
+}
+
+.contact-info-grid .contact-card a {
+  color: var(--navbar-link-color); /* Primary color for links */
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+.contact-info-grid .contact-card a:hover {
+  color: #c0ff00;
+  text-decoration: underline;
+}
+
+.response-time {
+  font-size: 0.85rem;
+  color: var(--description-color);
+  margin-top: 0.5rem;
+}
+
+/* Social Media Card */
+.social-media-card {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.social-media-card .card-header {
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-media-card .card-title {
+  font-size: 2rem;
+}
+
+.social-media-card .card-description {
+  font-size: 1rem;
+}
+
+.social-links-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-button {
+  background: var(--card);
+  color: var(--primary);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  margin: 0.3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.social-button:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-md);
+}
+
+.social-icon {
+  font-size: 1.2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .contact-title {
+    font-size: 3.2rem; /* Increased from 3rem */
+    margin-left: 0; /* Center title */
+  }
+  .contact-description {
+    font-size: 1.2rem; /* Increased from 1.1rem */
+  }
+  .location-card {
+    grid-column: span 1; /* Stack on smaller desktops */
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 4rem 1.5rem; /* Increased from 3rem 1rem */
+  }
+  .contact-title {
+    font-size: 2.8rem; /* Increased from 2.5rem */
+    margin-left: 0;
+  }
+  .contact-description {
+    font-size: 1.1rem; /* Increased from 1rem */
+  }
+  .main-content-grid,
+  .contact-info-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+    gap: 2rem; /* Increased from 1.5rem */
+  }
+  .contact-card {
+    padding: 2.5rem; /* Increased from 2rem */
+  }
+  .location-card {
+    grid-column: auto; /* Reset grid column span */
+  }
+  .global-locations-grid {
+    grid-template-columns: 1fr; /* Stack badges */
+  }
+  .quick-actions-card .card-title {
+    font-size: 2rem; /* Increased from 1.8rem */
+  }
+  .social-links-group {
+    flex-direction: column; /* Stack social buttons */
+    align-items: center;
+    gap: 1.5rem; /* Increased from 1rem */
+  }
+  .social-button {
+    width: 85%; /* Increased from 80% */
+    max-width: 280px; /* Increased from 250px */
+    font-size: 1rem; /* Increased from default */
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 2.2rem; /* Increased from 2rem */
+  }
+  .contact-description {
+    font-size: 1rem; /* Increased from 0.9rem */
+  }
+  .contact-card {
+    padding: 2rem; /* Increased from 1.5rem */
+  }
+  .card-title {
+    font-size: 1.7rem; /* Increased from 1.5rem */
+  }
+  .quick-actions-card .card-title {
+    font-size: 1.7rem; /* Increased from 1.5rem */
+  }
+  .custom-button {
+    padding: 1rem 1.2rem; /* Increased from 0.8rem 1rem */
+    font-size: 1.1rem; /* Increased from 1rem */
+  }
+}

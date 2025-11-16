@@ -1,0 +1,102 @@
+/* Signup Container */
+.signup-container {
+  background: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  padding: 2.5rem 1rem;
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.signup-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.signup-form {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 2rem 2.2rem;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--input);
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+.form-input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.submit-button {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--primary);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s, transform 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+.submit-button:hover {
+  background: var(--primary-hover);
+  color: var(--primary-foreground);
+  border: 1px solid var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.error-message {
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+  border: 1px solid var(--destructive);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .signup-container {
+    padding: 1rem 0.2rem;
+  }
+  .signup-form {
+    padding: 1rem 0.5rem;
+    max-width: 98vw;
+  }
+  .form-input {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.5rem;
+  }
+  .submit-button {
+    font-size: 0.98rem;
+    padding: 0.7rem 0.5rem;
+    width: 100%;
+  }
+}

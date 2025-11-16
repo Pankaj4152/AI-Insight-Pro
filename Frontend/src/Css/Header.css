@@ -1,0 +1,430 @@
+/* Header.css - Styles for Header.js component */
+
+/* Main Header Container */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  background: rgba(var(--background-rgb), 0.05);
+  border-bottom: 1px solid transparent;
+  z-index: 100;
+  font-family: var(--font-family);
+  color: var(--foreground);
+  box-sizing: border-box;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  gap: 1rem;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* Glassy effect when scrolled */
+.main-header.scrolled {
+  background: rgba(var(--background-rgb), 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(var(--border-rgb), 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  animation: glassyAppear 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes glassyAppear {
+from {
+  background: rgba(var(--background-rgb), 0.05);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+to {
+  background: rgba(var(--background-rgb), 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+}
+
+/* Enhanced glassy effects for navbar elements when scrolled */
+.main-header.scrolled .header-logo-section {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.main-header.scrolled .desktop-nav {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.main-header.scrolled .header-right-section {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Left Section - Mobile Nav and Logo */
+.header-left-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 0 0 auto;
+  height: 100%;
+  min-width: 0; /* Allow shrinking if needed */
+  position: relative; /* Enable z-index stacking */
+}
+
+/* Logo and Brand Section */
+.header-logo-section {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000; /* Much lower than hamburger */
+  min-width: 0; /* Allow shrinking */
+  position: relative;
+}
+
+.header-logo {
+  height: 32px;
+  width: 32px;
+  object-fit: contain;
+  margin-top: 0;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.header-brand-name {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--foreground);
+  letter-spacing: 0.02em;
+  margin-top:0;
+}
+.product-name{
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--foreground);
+  letter-spacing: 0.02em;
+  margin-top:0;
+}
+
+.header-brand-separator {
+  font-weight: 400;
+  font-size: 1.05rem;
+  color: var(--foreground);
+  opacity: 0.7;
+  margin: 0 0.6rem;
+}
+
+.header-brand-subtitle {
+  font-weight: 500;
+  font-size: 1.08rem;
+  color: var(--foreground);
+  letter-spacing: 0.01em;
+}
+
+/* Navigation Sections */
+.desktop-nav {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  margin: 0 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-nav {
+  display: none;
+  position: relative;
+  z-index: 3000;
+  flex-shrink: 0;
+}
+
+/* Right Section - Theme Toggle, Profile/Signup */
+.header-right-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 0 0 auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Auth Buttons Container for horizontal layout */
+.auth-buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+/* Profile Link */
+.header-profile-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(var(--border-rgb), 0.3);
+  background: rgba(var(--background-rgb), 0.8);
+  transition: background 0.2s, border 0.2s;
+  margin-left: 0.5rem;
+}
+
+.header-profile-link:hover {
+  background: var(--logout-hover-bg);
+  border-color: var(--logout-hover-bg);
+  color: #fff;
+}
+
+/* Signup Button */
+.header-signup-btn {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(var(--border-rgb), 0.3);
+  background: rgba(var(--background-rgb), 0.8);
+  color: var(--foreground);
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: background 0.2s, border 0.2s;
+}
+
+.header-signup-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Logout Button */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid rgba(var(--border-rgb), 0.3);
+  background: rgba(var(--background-rgb), 0.8);
+  color: var(--foreground);
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.logout-btn:hover {
+  background: var(--logout-hover-bg);
+  color: #fff;
+  border-color: var(--logout-hover-bg);
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: block;
+    position: relative;
+    z-index: 3000;
+  }
+  
+  .header-left-section {
+    gap: 0.5rem; /* Reduce gap on mobile */
+    padding-left: 50px; /* Make space for fixed hamburger */
+  }
+  
+  .header-logo-section {
+    margin-left: 0; /* Reset margin since we have padding on parent */
+  }
+  
+  .main-header {
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-brand-name {
+    font-size: 1rem;
+  }
+  
+  .header-brand-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .header-brand-separator {
+    font-size: 0.95rem;
+    margin: 0 0.4rem;
+  }
+  
+  .header-right-section {
+    gap: 0.5rem;
+  }
+  
+  /* HORIZONTAL layout for auth buttons on mobile */
+  .auth-buttons-container {
+    flex-direction: row !important;
+    gap: 0.3rem !important;
+    align-items: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-header {
+    padding: 0 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .header-left-section {
+    gap: 0.5rem;
+    padding-left: 48px; /* Adjust space for smaller fixed hamburger */
+  }
+  
+  .header-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 0;
+    gap: 0.1rem;
+  }
+  
+  .header-brand-name {
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+  
+  .product-name {
+    font-size: 0.75rem;
+    line-height: 1;
+    margin-left: 0;
+  }
+  
+  .header-brand-separator {
+    display: none;
+  }
+  
+  .header-brand-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .header-logo {
+    height: 28px;
+    width: 28px;
+  }
+  
+  /* Improved mobile layout for right section */
+  .header-right-section {
+    flex-direction: row;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  /* HORIZONTAL layout for auth buttons on mobile */
+  .auth-buttons-container {
+    flex-direction: row !important;
+    gap: 0.3rem !important;
+    align-items: center !important;
+  }
+  
+  /* Compact buttons for mobile */
+  .header-profile-link,
+  .logout-btn,
+  .header-signup-btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    margin-left: 0;
+    min-width: auto;
+    white-space: nowrap;
+  }
+  
+  /* Show text but make it compact */
+  .header-profile-link span,
+  .logout-btn span {
+    display: none;
+  }
+  
+  /* Keep icons visible and properly sized */
+  .header-profile-link svg,
+  .logout-btn svg {
+    margin-right: 0 !important;
+    width: 16px;
+    height: 16px;
+  }
+  
+  /* Theme toggle adjustments for mobile */
+  .theme-toggle-container {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .theme-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-header {
+    padding: 0 0.5rem;
+    gap: 0.3rem;
+  }
+  
+  .header-left-section {
+    padding-left: 44px; /* Even more compact spacing for fixed hamburger */
+  }
+  
+  .header-brand-name {
+    font-size: 0.8rem;
+  }
+  
+  .product-name {
+    font-size: 0.7rem;
+  }
+  
+  .header-logo {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Even more compact for very small screens */
+  .header-right-section {
+    gap: 0.3rem;
+  }
+  
+  .header-profile-link,
+  .logout-btn,
+  .header-signup-btn {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+  
+  .theme-toggle-container {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .theme-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* Very compact HORIZONTAL layout */
+  .auth-buttons-container {
+    gap: 0.2rem !important;
+    flex-direction: row !important;
+  }
+} 

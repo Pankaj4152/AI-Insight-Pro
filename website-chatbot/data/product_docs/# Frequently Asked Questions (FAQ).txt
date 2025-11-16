@@ -1,0 +1,34 @@
+# Frequently Asked Questions (FAQ)
+
+**Q: What does AI-Insight-Pro do?**
+A: It automates data privacy risk assessment, SDE detection, and compliance reporting using AI agents and advanced scanning.
+
+**Q: What data sources are supported?**
+A: Databases (SQLite, MySQL, PostgreSQL), files (CSV, Excel, JSON, YAML, TXT), and cloud sources (Google BigQuery, GCS, AWS S3).
+
+**Q: What is an SDE?**
+A: SDE stands for Sensitive Data Element, such as email, phone, Aadhaar, PAN, credit card, etc..
+
+**Q: How is risk calculated?**
+A: The system uses a weighted scoring approach based on the number and sensitivity of findings (high/medium/low/critical).
+
+**Q: Can I add custom SDEs or patterns?**
+A: Yes, you can add custom SDEs and regex patterns via configuration files or the UI.
+
+**Q: What compliance standards are supported?**
+A: GDPR, PCI , HIPPA , DPDP Act, and more.
+
+**Q: What report formats are available?**
+A: PDF and visual dashboards.
+
+**Q: How do I run a scan?**
+A: Configure your sources, select SDEs, and trigger a scan via the UI or CLI.
+
+**Q: Where are reports saved?**
+A: Reports are saved in the reports/ directory with timestamps for easy tracking.
+
+**Q: How do I get help?**
+A: Refer to the documentation, CLI help, or contact the development team.
+
+**Q: How to use this product?**
+A: Sign up or login into it. Select sdes and connect a data source. After successful connection click on discover and start scan. After scan you can view the result in risk dashboard.

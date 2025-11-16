@@ -1,0 +1,650 @@
+sde_definitions:
+  # SDEs applicable across all industries - No Protection Method
+  all_industries:
+    id:
+      data_type: integer
+      sensitivity: medium
+      regex: \b\d+\b
+      classification_level: Restricted
+    
+    name:
+      data_type: string
+      sensitivity: high
+      regex: '\b[A-Z][a-z]+(?: [A-Z][a-z]+)*\b'
+      classification_level: Confidential
+    
+    email:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b
+      classification_level: Confidential
+    phone:
+      data_type: string
+      sensitivity: medium
+      regex: \b\d{10}\b
+      classification_level: Restricted
+    mobile:
+      data_type: string
+      sensitivity: medium
+      regex: \b\d{10}\b
+      classification_level: Restricted
+    contact:
+      data_type: string
+      sensitivity: medium
+      regex: \b\d{10}\b
+      classification_level: Restricted
+    address:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any address string
+      classification_level: Restricted
+    city:
+      data_type: string
+      sensitivity: low
+      regex: '\b[A-Za-z]+(?:[\s-][A-Za-z]+)*\b' # Matches common city names
+      classification_level: Public
+    state:
+      data_type: string
+      sensitivity: low
+      regex: '\b[A-Za-z]+(?:[\s-][A-Za-z]+)*\b' # Matches common state names
+      classification_level: Public
+    country:
+      data_type: string
+      sensitivity: low
+      regex: '\b[A-Za-z]+(?:[\s-][A-Za-z]+)*\b' # Matches common country names
+      classification_level: Public
+    zipcode:
+      data_type: string
+      sensitivity: low
+      regex: \b\d{5,6}\b
+      classification_level: Public
+    postal_code:
+      data_type: string
+      sensitivity: low
+      regex: \b\d{5,6}\b
+      classification_level: Public
+    location:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any location string
+      classification_level: Public
+    dob:
+      data_type: date
+      sensitivity: high
+      regex: \b\d{4}-\d{2}-\d{2}\b
+      classification_level: Confidential
+    birthdate:
+      data_type: date
+      sensitivity: high
+      regex: \b\d{4}-\d{2}-\d{2}\b
+      classification_level: Confidential
+    gender:
+      data_type: string
+      sensitivity: low
+      regex: \b(Male|Female|Other|Prefer not to say)\b # Common gender values
+      classification_level: Public
+    age:
+      data_type: integer
+      sensitivity: low
+      regex: \b\d{1,3}\b
+      classification_level: Public
+    aadhaar_number:
+      data_type: string
+      sensitivity: high
+      regex: \b\d{4}[- ]?\d{4}[- ]?\d{4}\b
+      classification_level: Confidential
+    passport_number:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-PR-WYa-pr-wy][1-9]\d{6}\b
+      classification_level: Confidential
+    driving_license_number:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z]{2}\d{2}\s?\d{11}\b
+      classification_level: Confidential
+    customer_id:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{6,12}\b
+      classification_level: Restricted
+
+  # Industry-specific SDEs
+  healthcare:
+    medical_record_number:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z0-9]{8,12}\b
+      classification_level: Confidential
+    diagnosis:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any diagnosis string
+      classification_level: Confidential
+    treatment_details:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any treatment details string
+      classification_level: Confidential
+    prescription:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any prescription string
+      classification_level: Confidential
+    doctor_name:
+      data_type: string
+      sensitivity: medium
+      regex: '\b[A-Z][a-z]+(?: [A-Z][a-z]+)*\b' # Matches common name patterns
+      classification_level: Restricted
+    hospital_name:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any hospital name string
+      classification_level: Restricted
+    insurance_policy_number:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z0-9]{8,15}\b
+      classification_level: Confidential
+    blood_type:
+      data_type: string
+      sensitivity: medium
+      regex: \b(A|B|AB|O)[+-]\b
+      classification_level: Restricted
+    allergies:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any allergies string
+      classification_level: Restricted
+    patient_history:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any patient history string
+      classification_level: Confidential
+    medication_history:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any medication history string
+      classification_level: Confidential
+    immunization_status:
+      data_type: string
+      sensitivity: medium
+      regex: \b(Vaccinated|Partially Vaccinated|Unvaccinated)\b # Common immunization statuses
+      classification_level: Restricted
+    lab_results:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any lab results string
+      classification_level: Confidential
+    billing_code:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{5,10}\b
+      classification_level: Restricted
+    appointment_date:
+      data_type: date
+      sensitivity: low
+      regex: \b\d{4}-\d{2}-\d{2}\b
+      classification_level: Public
+    primary_care_physician:
+      data_type: string
+      sensitivity: medium
+      regex: '\b[A-Z][a-z]+(?: [A-Z][a-z]+)*\b' # Matches common name patterns
+      classification_level: Restricted
+    pharmacy_name:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any pharmacy name string
+      classification_level: Public
+    emergency_contact:
+      data_type: string
+      sensitivity: medium
+      regex: \b\d{10}\b # Assuming phone number format
+      classification_level: Restricted
+    health_insurance_provider:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any insurance provider string
+      classification_level: Confidential
+    genetic_information:
+      data_type: string
+      sensitivity: critical
+      regex: '.*' # Generic regex for any genetic information string
+      classification_level: Highly Confidential
+
+  finance:
+    account_number:
+      data_type: string
+      sensitivity: high
+      regex: \b\d{9,18}\b
+      classification_level: Confidential
+    card_number:
+      data_type: string
+      sensitivity: high
+      regex: \b\d{16}\b
+      classification_level: Confidential
+    ssn:
+      data_type: string
+      sensitivity: high
+      regex: \b\d{3}-\d{2}-\d{4}\b
+      classification_level: Confidential
+    pan:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z]{5}\d{4}[A-Z]\b
+      classification_level: Confidential
+    salary:
+      data_type: float
+      sensitivity: high
+      regex: \b\d+(\.\d{1,2})?\b
+      classification_level: Confidential
+    income:
+      data_type: float
+      sensitivity: high
+      regex: \b\d+(\.\d{1,2})?\b
+      classification_level: Confidential
+    ifsc_code:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z]{4}0[A-Z0-9]{6}\b
+      classification_level: Restricted
+    upi_id:
+      data_type: string
+      sensitivity: high
+      regex: \b[a-zA-Z0-9.]+@[a-zA-Z]+\b
+      classification_level: Confidential
+    credit_score:
+      data_type: integer
+      sensitivity: high
+      regex: \b\d{3}\b
+      classification_level: Confidential
+    investment_account:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z0-9]{10,15}\b
+      classification_level: Confidential
+    loan_number:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z0-9]{8,15}\b
+      classification_level: Confidential
+    transaction_id:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{10,20}\b
+      classification_level: Restricted
+    transaction_amount:
+      data_type: float
+      sensitivity: high
+      regex: \b\d+(\.\d{2})?\b
+      classification_level: Confidential
+    payment_method:
+      data_type: string
+      sensitivity: high
+      regex: \b(Credit Card|Debit Card|Net Banking|UPI|Cash)\b # Common payment methods
+      classification_level: Confidential
+    bank_statement:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any bank statement content
+      classification_level: Confidential
+    credit_limit:
+      data_type: float
+      sensitivity: medium
+      regex: \b\d+(\.\d{1,2})?\b
+      classification_level: Restricted
+    stock_portfolio:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any stock portfolio details
+      classification_level: Confidential
+    bond_holding:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any bond holding details
+      classification_level: Confidential
+    mutual_fund_details:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any mutual fund details
+      classification_level: Confidential
+    beneficiary_name:
+      data_type: string
+      sensitivity: medium
+      regex: '\b[A-Z][a-z]+(?: [A-Z][a-z]+)*\b' # Matches common name patterns
+      classification_level: Restricted
+
+  retail_ecommerce:
+    loyalty_card_number:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{8,15}\b
+      classification_level: Restricted
+    purchase_history:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any purchase history string
+      classification_level: Confidential
+    cart_items:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any cart items string
+      classification_level: Restricted
+    billing_address:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any billing address string
+      classification_level: Restricted
+    delivery_address:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any delivery address string
+      classification_level: Restricted
+
+  education:
+    student_id:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z0-9]{6,10}\b
+      classification_level: Confidential
+    grade:
+      data_type: string
+      sensitivity: medium
+      regex: \b(A\+|A|B\+|B|C\+|C|D|F)\b # Common letter grades
+      classification_level: Restricted
+    marks:
+      data_type: float
+      sensitivity: medium
+      regex: \b\d{1,3}(\.\d{1,2})?\b
+      classification_level: Restricted
+    admission_number:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z0-9]{6,10}\b
+      classification_level: Confidential
+    class_teacher:
+      data_type: string
+      sensitivity: low
+      regex: '\b[A-Z][a-z]+(?: [A-Z][a-z]+)*\b' # Matches common name patterns
+      classification_level: Public
+    school_name:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any school name string
+      classification_level: Restricted
+    exam_results:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any exam results string
+      classification_level: Confidential
+    disciplinary_action:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any disciplinary action string
+      classification_level: Confidential
+
+  human_resources:
+    Emp_id:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z]{2}\d{4}\b
+      classification_level: Confidential
+    department:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any department string
+      classification_level: Unclassified
+    salary:
+      data_type: float
+      sensitivity: high
+      regex: \b\d+(\.\d{1,2})?\b
+      classification_level: Confidential
+    employment_status:
+      data_type: string
+      sensitivity: low
+      regex: \b(Active|Inactive|On Leave|Terminated)\b # Common employment statuses
+      classification_level: Public
+    hire_date:
+      data_type: date
+      sensitivity: medium
+      regex: \b\d{4}-\d{2}-\d{2}\b
+      classification_level: Restricted
+
+  hospitality:
+    booking_id:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{8,15}\b
+      classification_level: Restricted
+    room_number:
+      data_type: string
+      sensitivity: low
+      regex: \b\d{1,4}[A-Z]?\b # Common room number formats (e.g., 101, 203A)
+      classification_level: Public
+    check_in_date:
+      data_type: date
+      sensitivity: low
+      regex: \b\d{4}-\d{2}-\d{2}\b
+      classification_level: Public
+    check_out_date:
+      data_type: date
+      sensitivity: low
+      regex: \b\d{4}-\d{2}-\d{2}\b
+      classification_level: Public
+    guest_preferences:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any guest preferences string
+      classification_level: Restricted
+
+  government:
+    citizen_id:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z0-9]{10,20}\b
+      classification_level: Confidential
+    tax_id:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z0-9]{9,15}\b
+      classification_level: Confidential
+    visa_number:
+      data_type: string
+      sensitivity: high
+      regex: \b[A-Z0-9]{7,12}\b
+      classification_level: Confidential
+    permit_number:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{5,10}\b
+      classification_level: Restricted
+
+  telecommunications:
+    subscriber_id:
+      data_type: string
+      sensitivity: high
+      regex: \b\d{10,15}\b
+      classification_level: Confidential
+    service_plan:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any service plan string
+      classification_level: Public
+    billing_cycle:
+      data_type: string
+      sensitivity: low
+      regex: \b(Monthly|Quarterly|Annually)\b # Common billing cycles
+      classification_level: Public
+    call_records:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any call records string
+      classification_level: Confidential
+
+  transportation_logistics:
+    tracking_number:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{10,25}\b
+      classification_level: Restricted
+    destination_address:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any address string
+      classification_level: Restricted
+    origin_address:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any address string
+      classification_level: Restricted
+    driver_id:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{5,10}\b
+      classification_level: Restricted
+
+  marketing_advertising:
+    ad_campaign_id:
+      data_type: string
+      sensitivity: low
+      regex: \b[A-Z0-9]{8,20}\b # Example ad campaign ID format
+      classification_level: Public
+    customer_segment:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any customer segment description
+      classification_level: Public
+    conversion_rate:
+      data_type: float
+      sensitivity: low
+      regex: \b\d+(\.\d{1,2})?\b # Percentage or decimal rate
+      classification_level: Public
+    Browse_history:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any Browse history string
+      classification_level: Confidential
+
+  manufacturing:
+    product_serial_number:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{10,20}\b
+      classification_level: Restricted
+    batch_number:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{5,15}\b
+      classification_level: Restricted
+    production_date:
+      data_type: date
+      sensitivity: low
+      regex: \b\d{4}-\d{2}-\d{2}\b
+      classification_level: Public
+    quality_control_data:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any quality control data
+      classification_level: Restricted
+
+  restaurants: # New Industry with 20 SDEs - No Protection Method
+    restaurant_name:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any restaurant name string
+      classification_level: Public
+    table_number:
+      data_type: integer
+      sensitivity: low
+      regex: \b\d{1,3}\b
+      classification_level: Public
+    reservation_time:
+      data_type: datetime
+      sensitivity: low
+      regex: \b\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\b # ISO 8601 datetime format
+      classification_level: Public
+    order_id:
+      data_type: string
+      sensitivity: medium
+      regex: \b[A-Z0-9]{8,15}\b
+      classification_level: Restricted
+    menu_item_ordered:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any menu item string
+      classification_level: Public
+    special_requests:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any special requests string
+      classification_level: Public
+    dietary_restrictions:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any dietary restrictions string
+      classification_level: Confidential
+    staff_id:
+      data_type: string
+      sensitivity: low
+      regex: \b[A-Z0-9]{4,8}\b
+      classification_level: Public
+    feedback_comments:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any feedback comments string
+      classification_level: Public
+    loyalty_points:
+      data_type: integer
+      sensitivity: low
+      regex: \b\d+\b
+      classification_level: Public
+    gift_card_number:
+      data_type: string
+      sensitivity: medium
+      regex: \b\d{16}\b
+      classification_level: Restricted
+    chef_notes:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any chef notes string
+      classification_level: Public
+    delivery_partner_id:
+      data_type: string
+      sensitivity: low
+      regex: \b[A-Z0-9]{5,10}\b
+      classification_level: Public
+    delivery_instructions:
+      data_type: string
+      sensitivity: low
+      regex: '.*' # Generic regex for any delivery instructions string
+      classification_level: Public
+    allergens_present:
+      data_type: string
+      sensitivity: high
+      regex: '.*' # Generic regex for any allergens string
+      classification_level: Confidential
+    waitlist_position:
+      data_type: integer
+      sensitivity: low
+      regex: \b\d+\b
+      classification_level: Public
+    event_booking_details:
+      data_type: string
+      sensitivity: medium
+      regex: '.*' # Generic regex for any event booking details string
+      classification_level: Restricted
+    payment_status:
+      data_type: string
+      sensitivity: low
+      regex: \b(Paid|Pending|Refunded)\b # Common payment statuses
+      classification_level: Public
+    dine_in_take_out_preference:
+      data_type: string
+      sensitivity: low
+      regex: \b(Dine-In|Take-Out|Delivery)\b # Common preferences
+      classification_level: Public
+    coupon_code:
+      data_type: string
+      sensitivity: low
+      regex: \b[A-Z0-9]{5,15}\b # Example coupon code format
+      classification_level: Public

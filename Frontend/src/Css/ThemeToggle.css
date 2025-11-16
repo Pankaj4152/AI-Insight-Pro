@@ -1,0 +1,135 @@
+.theme-toggle-container {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--navbar-background, #1a1a1a);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--border);
+  transition: background 0.2s, border 0.2s;
+}
+
+[data-theme='light'] .theme-toggle-container {
+  background: var(--background);
+  border: 1.5px solid var(--border);
+}
+
+[data-theme='dark'] .theme-toggle-container {
+  background: var(--navbar-background, #1a1a1a);
+  border: 1.5px solid var(--border);
+}
+
+/* Container for icons to manage layering */
+.theme-icons {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Base icon styling */
+.theme-icon {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  pointer-events: none; /* Prevent interference with container click */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sun starts visible in light theme */
+.theme-icon.sun {
+  color: var(--primary-sun);
+  z-index: 1;
+}
+
+.theme-icon.sun.active {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.theme-icon.moon {
+  color: var(--foreground);
+  z-index: 1;
+}
+
+.theme-icon.moon.active {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+/* DARK THEME ACTIVATED */
+body.theme-dark .theme-icon.sun {
+  transform: translate(-50%, 30px); /* Sun slides down and out */
+  opacity: 0;
+}
+
+body.theme-dark .theme-icon.moon {
+  transform: translate(-50%, -50%); /* Moon slides into view */
+  opacity: 1;
+}
+
+/* LIGHT THEME ACTIVATED */
+body.theme-light .theme-icon.moon {
+  transform: translate(-50%, 30px); /* Moon slides down and out */
+  opacity: 0;
+}
+
+body.theme-light .theme-icon.sun {
+  transform: translate(-50%, -50%); /* Sun slides into view */
+  opacity: 1;
+}
+
+/* Accessibility - Temporary focus outline */
+.theme-toggle-container.focus-visible {
+  outline: 2px solid var(--accent-green-light); /* Green outline as requested */
+  outline-offset: 2px;
+}
+
+/* Default focus style for keyboard navigation */
+.theme-toggle-container:focus {
+  outline: none; /* Remove default focus outline */
+}
+
+/* Accessibility */
+.theme-toggle-container:focus-visible {
+  outline: 2px solid var(--accent-green-light);
+  outline-offset: 2px;
+}
+
+/* Mobile responsiveness for theme toggle */
+@media (max-width: 480px) {
+  .theme-toggle-container {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .theme-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .theme-toggle-container {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .theme-icon {
+    width: 14px;
+    height: 14px;
+  }
+}

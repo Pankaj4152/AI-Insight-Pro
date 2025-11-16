@@ -1,0 +1,294 @@
+# Website Workflow Documentation
+
+## Overview
+[cite_start]This document outlines the complete workflow of the **AI-Insight-Pro** platform[cite: 227]. [cite_start]The system is designed to help organizations identify, classify, and protect sensitive data elements (SDEs) across their infrastructure through comprehensive data source scanning and risk analysis[cite: 228].
+
+---
+
+## Frontend Workflow
+
+### 1. Login
+#### User Authentication & Onboarding
+- **Entry Point**: User visits the application homepage
+- **Registration**: New users must provide:
+  - Full Name (for identification)
+  - Username (unique identifier)
+  - Company Name (for industry-specific analysis)
+  - Email Address (for communication)
+  - Password (secure access)
+#### User Session Management
+- **Unique Key Generation**: Upon successful login, a unique session key is created
+- **Session Tracking**: User activities are tracked with their unique identifier
+- **Multi-session Support**: Users can access from multiple devices with same credentials
+#### Post-Login Navigation
+- **Dashboard**: Welcome screen with user-specific information
+- [cite_start]**Navbar Menu**: Persistent navigation with multiple options [cite: 230]
+- **User Profile**: Access to account settings and preferences
+
+### 2. SDE Selection - Core Feature
+#### What are SDEs (Sensitive Data Elements)?
+[cite_start]**SDEs** are specific types of data that require special protection due to their sensitive nature[cite: 231]. They include:
+- **Personal Identifiable Information (PII)**:
+  - Social Security Numbers
+  - Credit Card Numbers
+  - Driver's License Numbers
+  - Passport Numbers
+  - Email Addresses
+  - Phone Numbers
+- **Financial Information**:
+  - Bank Account Numbers
+  - Credit Card Details
+  - Tax Identification Numbers
+  - Salary Information
+- **Healthcare Data**:
+  - Medical Record Numbers
+  - Health Insurance Numbers
+  - Patient Identifiers
+  - Diagnosis Codes
+- **Business Sensitive Data**:
+  - Trade Secrets
+  - Intellectual Property
+  - Customer Lists
+  - Financial Reports
+#### Why SDEs are Critical
+1. [cite_start]**Compliance Requirements**: GDPR, CCPA, HIPAA, SOX regulations [cite: 233]
+2. **Data Breach Prevention**: Identifying sensitive data helps prevent leaks
+3. **Risk Assessment**: Understanding data sensitivity enables better risk management
+4. **Privacy Protection**: Ensures customer and employee privacy
+5. **Legal Obligations**: Many industries have mandatory data protection requirements
+#### SDE Catalogue Features
+- **Industry-Specific SDEs**:
+  - **Healthcare**: HIPAA-compliant data elements
+  - **Finance**: PCI-DSS and SOX requirements
+  - **Retail**: Customer PII and payment data
+  - **Technology**: Intellectual property and trade secrets
+  - **Government**: Classified and sensitive information
+- **SDE Management**:
+  - **Browse Existing SDEs**: View industry-specific sensitive data elements
+  - **Add New SDEs**: Create custom SDEs with regex patterns
+  - **Edit SDEs**: Modify existing patterns and descriptions
+  - [cite_start]**Delete SDEs**: Remove obsolete or incorrect entries [cite: 234]
+  - **Search & Filter**: Find specific SDEs by category or name
+- **Regex Pattern Management**:
+  - **Pattern Creation**: Define regex patterns for new SDEs
+  - **Pattern Testing**: Validate regex against sample data
+  - **Pattern Documentation**: Add descriptions and usage notes
+  - **Version Control**: Track changes to SDE patterns
+#### SDE Workflow Process
+1. **Discovery**: System scans data sources for potential SDEs
+2. **Classification**: Identified data is classified by type
+3. **Validation**: Human review of automated classifications
+4. **Documentation**: SDEs are documented with patterns and descriptions
+5. **Monitoring**: Continuous scanning for new SDE instances
+6. **Reporting**: Generate reports on SDE distribution and risk
+
+### 3. Model Registry
+- **Overview**: This section allows users to manage and register their custom AI models.
+- **Model Upload**: Users can upload their own model weights and configurations.
+- **Model Selection**: Choose which models to use for SDE detection and classification.
+
+### 4. Data Connection - Connect Navbar Option
+#### Data Source Types Supported
+- [cite_start]**Cloud Databases**: BigQuery, PostgreSQL, MySQL [cite: 235]
+- **Cloud Storage**: GCP Buckets, AWS S3
+- **On-Premise Databases**: Local PostgreSQL, MySQL servers
+- **File Systems**: Local and network file storage
+#### Connection Process
+1. **Source Selection**: Choose data source type from dropdown
+2. **Credential Entry**: Provide connection credentials
+   - **For BigQuery**: Project ID, Dataset ID, Service Account JSON
+   - **For PostgreSQL/MySQL**: Host, Port, Database, Username, Password
+   - **For GCP Buckets**: Project ID, Bucket Name, Service Account JSON
+3. **Connection Testing**: Validate credentials before proceeding
+4. **Registration**: Successfully connected sources are registered in the system
+#### Credential Security
+- [cite_start]**Encrypted Storage**: All credentials are encrypted at rest [cite: 236]
+- **Secure Transmission**: HTTPS encryption for all data transfers
+- **Access Control**: Role-based access to connection details
+- **Audit Logging**: Track all connection attempts and usage
+
+### 5. Dashboard - Comprehensive Overview
+#### Key Metrics Display
+- **Total Data Sources**: Number of connected data sources
+- **Total SDEs**: Count of sensitive data elements found
+- **Total Scans**: Number of scans performed
+- **Last Scan Time**: Most recent scan timestamp
+- **Next Scheduled Scan**: Upcoming automated scan
+- **High Risk SDEs**: Count of high-risk findings
+- **Total Sensitive Records**: Number of records containing sensitive data
+- **Risk Score**: Overall risk assessment score
+#### Real-Time Monitoring
+- [cite_start]**Scan Activity Widget**: Live scan progress and status [cite: 238]
+- **Compliance Summary**: Regulatory compliance status
+- **Risk Summary**: Current risk assessment overview
+- **Notifications**: Real-time alerts and updates
+- **Data Source Inventory**: List of all connected sources
+
+### 6. Risk and Compliance - Advanced Assessment
+#### Risk Assessment Features
+- **Risk Matrix**: Visual representation of risk levels
+- **Top Risk Findings**: Prioritized list of high-risk SDEs
+- **Risk Trend Charts**: Historical risk analysis
+- **Data Protection Actions**: Recommended security measures
+- **Linked Compliance Impact**: Regulatory compliance analysis
+- **Scan Progress Indicator**: Real-time scan monitoring
+#### Risk Distribution Analysis
+- **SDE Risk Levels**: Low, Medium, High risk classifications
+- **Finding Risk Levels**: Risk assessment for individual findings
+- [cite_start]**Filtered Results**: Search and filter by data source, risk level, sensitivity [cite: 239]
+- **Actionable Insights**: Specific recommendations for risk mitigation
+
+### 7. Report Generation - Comprehensive Documentation
+#### Report Types
+- **PDF Reports**: Professional formatted reports for stakeholders
+- **HTML Reports**: Interactive web-based reports
+- **LaTeX Reports**: Academic-style detailed reports
+#### Report Content
+- **Executive Summary**: High-level risk overview
+- **Detailed Findings**: Comprehensive SDE analysis
+- **Risk Assessment**: Detailed risk analysis and scoring
+- **Compliance Status**: Regulatory compliance evaluation
+- **Recommendations**: Actionable security recommendations
+- **Technical Details**: Technical implementation guidance
+#### Report Features
+- **Customizable Format**: Choose report format and style
+- **Company Branding**: Include company name and details
+- **User Information**: Include user name and contact details
+- [cite_start]**Download Options**: Direct download or preview mode [cite: 240]
+- **Historical Reports**: Access to previous report versions
+
+---
+
+## Backend Workflow
+
+### 1. User Management System
+#### Authentication Service
+- **User Registration**: Secure account creation with validation
+- **Login Verification**: Multi-factor authentication support
+- **Session Management**: JWT token-based session handling
+- **Password Security**: Encrypted password storage and recovery
+#### User Profile Management
+- **Profile Creation**: Store user information and preferences
+- **Company Association**: Link users to their organizations
+- **Role Assignment**: Define user permissions and access levels
+- **Activity Tracking**: Monitor user actions for security
+
+### 2. Data Source Connection Engine
+#### Connection Management
+- **Credential Validation**: Verify connection credentials
+- **Connection Pooling**: Efficient resource management
+- **Error Handling**: Graceful connection failure handling
+- [cite_start]**Retry Logic**: Automatic retry for failed connections [cite: 241]
+#### Supported Data Sources
+- **BigQuery**: Google Cloud BigQuery integration
+- **PostgreSQL**: Local and cloud PostgreSQL databases
+- **MySQL**: Local and cloud MySQL databases
+- **GCP Buckets**: Google Cloud Storage buckets
+- **File Systems**: Local and network file storage
+
+### 3. SDE Processing Engine
+#### Data Source Integration
+- **Database Connectors**: PostgreSQL, MySQL, BigQuery support
+- **File System Scanning**: Local and cloud storage scanning
+- **API Integration**: Third-party data source connections
+- **Real-time Monitoring**: Continuous data flow analysis
+#### SDE Detection Algorithm
+- **Pattern Matching**: Regex-based SDE identification
+- **Machine Learning**: AI-powered data classification
+- **Context Analysis**: Understanding data relationships
+- **False Positive Reduction**: Advanced filtering mechanisms
+#### Data Processing Pipeline
+1. [cite_start]**Data Ingestion**: Collect data from various sources [cite: 242]
+2. **Preprocessing**: Clean and normalize data
+3. **SDE Detection**: Apply pattern matching and ML models
+4. **Classification**: Categorize identified SDEs
+5. **Risk Assessment**: Calculate risk scores
+6. **Storage**: Secure storage of findings
+
+### 4. Risk Assessment Engine
+#### Risk Calculation
+- **SDE Sensitivity**: Assess data sensitivity levels
+- **Exposure Risk**: Evaluate data exposure potential
+- **Compliance Risk**: Regulatory compliance assessment
+- **Business Impact**: Evaluate potential business impact
+#### Risk Scoring Algorithm
+- **Multi-factor Analysis**: Consider multiple risk factors
+- **Weighted Scoring**: Apply weights to different risk factors
+- **Dynamic Updates**: Real-time risk score updates
+- **Historical Comparison**: Compare with previous assessments
+
+### 5. API Endpoints
+#### Data Source Management
+- [cite_start]**Connection Creation**: `/api/connect` - Create new data source connections [cite: 243]
+- **Connection Testing**: `/api/test-connection` - Validate connection credentials
+- **Connection Listing**: `/api/connections` - List all connected sources
+- **Connection Deletion**: `/api/connections/{id}` - Remove connections
+#### Scanning and Analysis
+- **Scan Initiation**: `/api/scan/start` - Start new scan
+- **Scan Status**: `/api/scan/status` - Get scan progress
+- **Scan Results**: `/api/scan/results` - Get scan findings
+- **Risk Assessment**: `/api/risk/assessment` - Generate risk analysis
+#### Dashboard and Reporting
+- **Dashboard Metrics**: `/api/dashboard/metrics` - Get dashboard data
+- **Risk Analysis**: `/api/risk/analysis` - Detailed risk assessment
+- **Report Generation**: `/api/report/generate` - Create comprehensive reports
+- **Report Download**: `/api/report/download` - Download reports
+
+### 6. Security and Compliance
+#### Data Protection
+- [cite_start]**Encryption**: End-to-end data encryption [cite: 244]
+- **Access Control**: Role-based permissions
+- **Audit Logging**: Complete activity tracking
+- **Data Retention**: Configurable retention policies
+#### Compliance Features
+- **GDPR Compliance**: European data protection
+- **CCPA Compliance**: California privacy laws
+- **HIPAA Compliance**: Healthcare data protection
+- **SOX Compliance**: Financial data security
+
+---
+
+## Technical Architecture
+
+### Frontend Technologies
+- **React.js**: User interface framework
+- **Material-UI**: Component library
+- **Redux**: State management
+- **Axios**: HTTP client for API calls
+
+### Backend Technologies
+- **FastAPI**: Python web framework
+- **PostgreSQL**: Primary database for user and scan data
+- **Redis**: Caching and session management
+- **Celery**: Background task processing for scans
+
+### Data Flow
+1. **User Input** → Frontend Validation
+2. **API Request** → Backend Processing
+3. **Data Source Connection** → Credential Validation
+4. [cite_start]**Scanning Process** → SDE Detection [cite: 245]
+5. **Risk Assessment** → Analysis and Scoring
+6. **Report Generation** → User Interface
+
+---
+
+## Future Enhancements
+
+### Planned Features
+- **Advanced Analytics**: Detailed SDE risk reports
+- **Automated Remediation**: Suggested data protection measures
+- **Integration APIs**: Third-party system connections
+- **Mobile Application**: iOS and Android apps
+- **Real-time Alerts**: Instant SDE detection notifications
+
+### Scalability Considerations
+- **Microservices Architecture**: Modular system design
+- **Cloud Deployment**: AWS/Azure/GCP support
+- **Load Balancing**: High availability setup
+- **Database Sharding**: Horizontal scaling support
+
+---
+
+## Conclusion
+
+[cite_start]This workflow provides a comprehensive framework for managing sensitive data elements across organizations[cite: 246]. [cite_start]The system combines user-friendly interfaces with powerful backend processing to deliver accurate, compliant, and actionable insights for data protection and risk management[cite: 247]. The modular design allows for easy expansion and customization based on specific industry requirements and organizational needs.

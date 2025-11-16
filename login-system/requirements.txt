@@ -1,0 +1,23 @@
+# Core FastAPI dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Database
+psycopg2-binary==2.9.9
+
+# Firebase
+firebase-admin==6.2.0
+
+# Environment variables
+python-dotenv==1.0.0
+
+# HTTP requests
+requests==2.31.0
+
+# Web server for production
+gunicorn==21.2.0
+
+# Additional utilities
+pydantic==2.5.0
+typing-extensions==4.8.0

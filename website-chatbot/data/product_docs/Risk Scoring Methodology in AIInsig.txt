@@ -1,0 +1,21 @@
+Risk Scoring Methodology in AI-Insight-Pro
+How Risk is Calculated
+AI-Insight-Pro employs a sophisticated, weighted scoring approach to accurately assess data privacy risks. Our methodology considers multiple factors to provide a comprehensive risk profile.
+
+Scoring Factors
+Number of SDEs Found vs. Total Scanned: A higher density of Sensitive Data Elements (SDEs) within a dataset increases the risk score.
+Total Scans vs. Expected Scans: Regular and complete scans indicate better data governance, reducing the risk score. Irregular or incomplete scans may increase it.
+Age of Last Scan (Decay Factor): Data that hasn't been scanned recently carries a higher inherent risk. A decay factor is applied, increasing the risk score over time since the last scan.
+Data Sensitivity Classification: SDEs are classified by their sensitivity (e.g., PII, PHI, financial data). Highly sensitive data contributes more significantly to the overall risk score.
+Compliance Framework Alignment: Gaps in compliance with relevant regulatory frameworks (GDPR, HIPAA, CCPA, etc.) will increase the risk score.
+
+Weighted Score Calculation
+Our system calculates two primary scores:
+- Risk Score: This is a weighted score primarily based on the density and sensitivity of discovered SDEs. It reflects the potential impact of a data breach.
+- Confidence Score: This score is derived from the scan coverage and data quality. A higher confidence score indicates a more thorough and reliable risk assessment.
+
+Risk Classification
+Based on the calculated risk score, findings are categorized into distinct risk classifications:
+- High Risk: Indicates a significant potential for data privacy incidents, requiring immediate attention.
+- Medium Risk: Suggests moderate risk, where potential vulnerabilities should be addressed in a timely manner.
+- Low Risk: Represents minimal risk, but best practices should still be maintained.

@@ -1,0 +1,20 @@
+Data Security and Compliance Measures in AI-Insight-Pro
+Our Commitment to Security
+[cite_start]AI-Insight-Pro prioritizes the security and privacy of your data[cite: 117]. [cite_start]We implement robust security measures and adhere to strict policies to safeguard sensitive information throughout its lifecycle within the platform[cite: 118].
+
+Key Security Measures
+Data Encryption:
+- [cite_start]Data in Transit: All data exchanged between your browser, our frontend, and backend APIs is encrypted using industry-standard TLS 1.3 protocols[cite: 119].
+- [cite_start]Data at Rest: Sensitive data, including connection credentials and scan findings stored in our databases (PostgreSQL, GCS), is encrypted using AES-256 encryption[cite: 120].
+Secure Credential Storage:
+- [cite_start]Credentials for connecting to your data sources are never stored directly in plain text[cite: 121]. [cite_start]They are securely encrypted and stored in designated secure storage like Google Cloud Storage (GCS) with highly restricted access[cite: 122].
+Access Controls:
+- [cite_start]User Authentication: Strong authentication mechanisms ensure only authorized users can log in to the platform[cite: 123].
+- [cite_start]Session Management: Secure, token-based session management prevents unauthorized session hijacking[cite: 124].
+- [cite_start]Role-Based Access Control (RBAC): User permissions are strictly managed based on their assigned roles, limiting access to data and functionalities only to what is necessary[cite: 125].
+Audit Logging:
+- [cite_start]Comprehensive audit trails are maintained for all significant actions performed within the platform[cite: 126]. [cite_start]This includes data source connections, scan initiations, report generations, and user login/logout activities[cite: 127]. [cite_start]These logs are crucial for compliance and security monitoring[cite: 127].
+Data Minimization:
+- [cite_start]During the scanning process, AI-Insight-Pro only processes the necessary data required for Sensitive Data Element (SDE) detection and risk assessment[cite: 128]. [cite_start]Temporary processing data is securely deleted after analysis, adhering to data minimization principles[cite: 129].
+Vulnerability Management:
+- [cite_start]We regularly conduct security audits and vulnerability assessments to identify and address potential weaknesses in the platform[cite: 130]. [cite_start]Security patches and updates are applied promptly to ensure continuous protection[cite: 130].

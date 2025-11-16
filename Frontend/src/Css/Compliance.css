@@ -1,0 +1,206 @@
+/* Container for the entire compliance page */
+.compliance-container {
+  min-height: calc(100vh - 64px); /* Full screen height minus header */
+  background: var(--background); /* Using your existing background variable */
+  font-family: var(--font-family);
+  padding: 3rem 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Page Header and Subtitle styles matching the rest of the application */
+.page-header {
+  max-width: 72rem;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+}
+
+/* Two-column grid for the input and results cards */
+.compliance-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .compliance-content-grid {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* Shared card styles for input and results */
+.compliance-input-card,
+.compliance-results-card {
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+/* Specific styles for the input card with a gradient background */
+.compliance-input-card.card-gradient {
+  height: min-content;
+  background: var(--primary-gradient); /* Updated to use your existing variable */
+  color: white;
+  border: none;
+}
+
+/* Specific styles for the results card */
+.compliance-results-card {
+  min-height: 20rem;
+}
+
+/* Button style with gradient, matching the 'Run Assessment' button */
+.compliance-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  background: var(--primary-gradient); /* Updated to use your existing variable */
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.compliance-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  opacity: 0.95;
+}
+
+.compliance-btn.disabled {
+  background: var(--primary-gradient);
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* New styles for the redesigned compliance report content */
+.compliance-report-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.report-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border); /* Using your existing border variable */
+  margin-bottom: 1.5rem;
+}
+
+.report-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 9999px; /* Pill shape */
+  font-size: 0.8rem;
+  font-weight: 600;
+  gap: 0.5rem;
+}
+
+.report-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.report-metric {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+
+.metric-value {
+  font-size: 1rem;
+  color: var(--foreground);
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.score-card {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+
+.score-label {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.score-value {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 0.25rem;
+}
+
+.report-section {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border); /* Using your existing border variable */
+  margin-top: 1.5rem;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,41 @@
+Steps To Use The Product  
+ 
+For Admin Role: 
+This role is defined for the company to store the risk analysis, set up sdes and initial infrastructure 
+ 
+1. Click on get started Button choose Admin profile fill the sign up form (ensure the credentials are correct)  
+2. After Sign Up the next step is to add sdes related to industries which would help in analysing the risk in data. (add the sdes of your industry additionally select sdes from all-industries domain that ensure general sdes). Admin needs to save the changes before moving further  
+Caution: Admin are free to remove sdes in intial state. Any future deletion might wont be options for certain used sdes 
+
+3. After sdes selection the Admin needs to set up Model registry. It is optional. Providing the feature of custom model for analysis.  
+Note: This feature is just reference here. Currently the product works on defined models. 
+
+4. You are driven or can direct to Connect Page.  
+	Connect Page: This page helps the admin to add data sources he can choose from drop down the different available options GCP, Bigquery, Postgresql. After selecting option enter the correct credential. Import the credential file (Note: The file is not saved by us and is used as reference to ensure credibility) Once the connection is successful Click on Discover Page. 
+
+5. The discover page is next step that helps admin see all the files stores in respective data source. He is allowed to scan all or partially scan the files by clicking on respective buttons. The scan process starts after submit that analyse the selected files. 
+
+6. Once the scanning is performed it would show below the findings for detail you could click on risk assessment button or click on Dashboard on navbar. 
+
+7. The Dashboard and risk section helps viewing the risk analysis on the given data. Showing the data sources connected, scans status, findings, risk score, confidence score, sdes find in the findings. The above pages provide visual and easy to understand preview to grasp the knowledge about data. 
+
+  
+8. Admin can select Compliance page click on generate button to view the compliance report that matches the sdes he selected and findings to ensure how much compliant the data is and with which field.  
+
+9. The report page provide the dowloadable report option on the risk analysis. Additionally the ASK page helps to enquire about data he fed.  
+
+ 
+
+For Compliance Officer Role 
+
+ 
+
+For higher authority to view the data analytics and observe the pattern. They can use the compliance officer role.  
+
+On get started button select compliance officer role button that will redirect to sign up page. It is understandable that compliance officer would have access to admin accounts so before signing up here ensure to have at least one admin account for company 
+
+The sign up page initially ask about the username, email and password for the officer, later he need to enter the company name, This helps in ensuring that the officer is someone trustable from the company once the company is verified he need to add admin username and email he wants to view reports of. Click on verify button that ensures the admin’s credential exists in the database. Currently the officer can add 3 accounts detail. 
+
+After sign up he needs to login and then will be redirected to product 
+
+For the officer he can see Dashboard, Risk Assessment, Report and compliance similarly as mentioned in admin role. To view report of another admin, the officer need to choose the account from drop down. In this way he can view the report of any admin he wants.

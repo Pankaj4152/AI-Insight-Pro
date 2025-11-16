@@ -1,0 +1,22 @@
+﻿# Risk Assessment Application - Essential Dependencies
+
+# Core FastAPI and Web Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+
+# Database
+psycopg2-binary==2.9.10
+
+# Environment and Configuration
+python-dotenv==1.1.1
+PyYAML==6.0.2
+
+# HTTP Requests
+requests==2.32.4
+
+# Date/Time handling
+pytz==2025.2
+
+# Report Generation
+reportlab==4.0.4

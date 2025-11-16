@@ -1,0 +1,300 @@
+# User Troubleshooting Guide
+
+## Overview
+This guide helps you resolve common issues when using the AI-Insight-Pro Data Protection platform.
+
+---
+
+## 🚨 Common Issues
+
+### **Chatbot Not Starting (Network Error)?**
+
+#### **Problem**: Chatbot shows "Failed to resolve 'huggingface.co'" or similar network errors
+**What to do**:
+1. **Check your internet connection** - Make sure you can access other websites
+2. **Run the network test script** - Use `python network_test.py` to diagnose connectivity
+3. **Try downloading the model first** - Run `python download_model.py` when you have internet
+4. **Use offline mode** - The chatbot will work with basic text similarity if models can't be downloaded
+
+#### **Common Error Messages**:
+- "Failed to resolve 'huggingface.co'"
+- "Max retries exceeded"
+- "ConnectionError: HTTPSConnectionPool"
+
+#### **Quick Fix**:
+- The chatbot will automatically fall back to offline mode
+- Try running the chatbot again - it should work with basic functionality
+
+### **Dashboard Not Loading?**
+
+#### **Problem**: Dashboard page shows blank or error message
+**What to do**:
+1. **Connect a data source first** - Go to the "Connect" page and add at least one data source
+2. **Refresh the page** - Press Ctrl+F5 (or Cmd+Shift+R on Mac) to clear cache
+3. **Try again later** - The server might be temporarily busy
+4. **Check your internet connection** - Make sure you have a stable internet connection
+
+#### **Common Error Messages**:
+- "Loading..." that never finishes
+- "No data available"
+- "Connection error"
+
+#### **Quick Fix**:
+- Wait a few minutes and try again
+- If the problem persists, contact support
+
+### **Risk Assessment Page Not Loading?**
+
+#### **Problem**: Risk assessment page shows blank or error message
+**What to do**:
+1. **Connect a data source first** - Go to "Connect" page and add your data
+2. **Run a scan** - After connecting, run a scan to generate risk data
+3. **Wait for scan to complete** - Large datasets may take several minutes
+4. **Try again later** - The system might be processing your data
+
+---
+
+## 🔌 Connection Issues
+
+### **Connection Test Failed**
+
+#### **Problem**: "Connection test failed" or "Pipeline failed"
+**What to do**:
+
+#### **1. Check Your Credentials**
+- Make sure your username and password are correct
+- Check if your database/server is running
+- Verify your connection details (host, port, database name)
+
+#### **2. Check Your Internet Connection**
+- Make sure you have a stable internet connection
+- Try accessing other websites to confirm connectivity
+- If using a VPN, try disconnecting it temporarily
+
+#### **3. Try Again Later**
+- The service might be temporarily busy
+- Wait 5-10 minutes and try again
+- If the problem persists, contact support
+
+### **Database Connection Problems**
+
+#### **MySQL Connection Issues**:
+- **Error**: "Access denied for user"
+- **What to do**: Double-check your username and password
+- **Tip**: Make sure your database user has the right permissions
+
+#### **PostgreSQL Connection Issues**:
+- **Error**: "Connection refused"
+- **What to do**: Verify your database server is running
+- **Tip**: Check if the port number is correct (usually 5432)
+
+#### **BigQuery Connection Issues**:
+- **Error**: "Invalid credentials"
+- **What to do**: Check your service account JSON file
+- **Tip**: Make sure your project ID is correct
+
+---
+
+## 🌐 Page Loading Issues
+
+### **Page Not Loading**
+
+#### **Problem**: White screen or "Cannot connect to server"
+**What to do**:
+1. **Check your internet connection** - Try visiting other websites
+2. **Refresh the page** - Press F5 or Ctrl+F5
+3. **Try a different browser** - Chrome, Firefox, or Safari
+4. **Clear browser cache** - Go to browser settings and clear cache
+5. **Try again later** - The server might be down for maintenance
+
+### **Slow Loading Pages**
+
+#### **Problem**: Pages take too long to load
+**What to do**:
+1. **Check your internet speed** - Try a speed test
+2. **Close other browser tabs** - Too many tabs can slow things down
+3. **Try again later** - The server might be busy
+4. **Contact support** if the problem persists
+
+---
+
+## 🔐 Login and Authentication Issues
+
+### **Can't Log In**
+
+#### **Problem**: "Login failed" or "Invalid credentials"
+**What to do**:
+1. **Check your email and password** - Make sure they're correct
+2. **Check caps lock** - Passwords are case-sensitive
+3. **Reset your password** - Use the "Forgot Password" link
+4. **Contact support** if you can't reset your password
+
+### **Session Expired**
+
+#### **Problem**: "Session expired" or "Please log in again"
+**What to do**:
+1. **Log in again** - Enter your credentials
+2. **Check "Remember me"** - This keeps you logged in longer
+3. **Don't close browser** - Keep the browser open while using the app
+
+---
+
+## 📊 Data and Scan Issues
+
+### **No Scan Results**
+
+#### **Problem**: Dashboard shows "0 scans" or "No data"
+**What to do**:
+1. **Connect a data source first** - Go to Connect page
+2. **Run a scan** - After connecting, start a scan
+3. **Wait for completion** - Scans can take several minutes
+4. **Check scan status** - Look for progress indicators
+
+### **Scan Taking Too Long**
+
+#### **Problem**: Scan has been running for hours
+**What to do**:
+1. **Be patient** - Large datasets take time to process
+2. **Check scan progress** - Look for progress bars or status messages
+3. **Don't close browser** - Keep the page open
+4. **Contact support** if scan has been running for more than 2 hours
+
+### **Scan Failed**
+
+#### **Problem**: "Scan failed" or "Error during scan"
+**What to do**:
+1. **Check your data source** - Make sure it's still connected
+2. **Try again** - Sometimes temporary issues cause failures
+3. **Check data size** - Very large datasets might need to be split
+4. **Contact support** if the problem continues
+
+---
+
+## 📄 Report Issues
+
+### **Can't Download Report**
+
+#### **Problem**: "Download failed" or "Report not available"
+**What to do**:
+1. **Wait for scan to complete** - Reports need scan data
+2. **Try different format** - Try PDF, HTML, or LaTeX
+3. **Check browser settings** - Make sure downloads are allowed
+4. **Try different browser** - Some browsers handle downloads differently
+
+### **Report is Empty**
+
+#### **Problem**: Downloaded report has no data
+**What to do**:
+1. **Run a scan first** - Reports need scan results
+2. **Check scan status** - Make sure scan completed successfully
+3. **Try again later** - Reports might take time to generate
+4. **Contact support** if the problem persists
+
+---
+
+## 🔧 Browser Issues
+
+### **Browser Compatibility**
+
+#### **Supported Browsers**:
+- **Chrome** (recommended)
+- **Firefox**
+- **Safari**
+- **Edge**
+
+#### **What to do if page looks wrong**:
+1. **Update your browser** - Use the latest version
+2. **Try a different browser** - Chrome works best
+3. **Check browser settings** - Make sure JavaScript is enabled
+4. **Clear browser cache** - Go to settings and clear cache
+
+### **Browser Errors**
+
+#### **Problem**: "JavaScript error" or "Page not responding"
+**What to do**:
+1. **Refresh the page** - Press F5
+2. **Clear browser cache** - Go to browser settings
+3. **Try a different browser** - Chrome, Firefox, or Safari
+4. **Restart your computer** - Sometimes helps with browser issues
+
+---
+
+## 📞 Getting Help
+
+### **When to Contact Support**
+
+**Contact support if**:
+- You've tried all the steps above
+- The problem has been happening for more than 1 hour
+- You can't log in at all
+- You're getting error messages you don't understand
+
+### **What to Tell Support**
+
+**Include this information**:
+- What you were trying to do
+- What error message you saw (if any)
+- What browser you're using
+- When the problem started
+- What you've already tried
+
+### **Contact Information**
+
+- **Email**: support@yourcompany.com
+- **Phone**: 1-800-SUPPORT
+- **Live Chat**: Available on the website
+- **Response Time**: Usually within 2-4 hours
+
+---
+
+## 🚀 Quick Fixes
+
+### **If Nothing Works**:
+1. **Wait 10 minutes** and try again
+2. **Try a different browser**
+3. **Clear browser cache**
+4. **Check your internet connection**
+5. **Contact support**
+
+### **Common Solutions**:
+- **Page not loading**: Refresh (F5) or try later
+- **Can't log in**: Check credentials or reset password
+- **No data showing**: Connect a data source first
+- **Scan failed**: Try again or contact support
+- **Report issues**: Wait for scan to complete
+
+---
+
+## 📋 Before You Start
+
+### **Check These First**:
+- [ ] You have a stable internet connection
+- [ ] You're using a supported browser
+- [ ] You have your login credentials ready
+- [ ] You have your data source details ready
+
+### **For Best Experience**:
+- [ ] Use Chrome browser
+- [ ] Keep browser open while using the app
+- [ ] Don't use VPN unless necessary
+- [ ] Have your data source credentials ready
+
+---
+
+## 🤖 Chatbot-Specific Issues
+
+### **Chatbot Network Connectivity Issues**
+
+#### **Problem**: "Failed to resolve 'huggingface.co'" or similar network errors
+**What to do**:
+1. **Check your internet connection** - Make sure you can access other websites
+2. **Use offline mode** - The chatbot will automatically fall back to basic functionality
+3. **Restart the chatbot** - Simply restart the service
+4. **Check firewall settings** - Corporate firewalls might block Hugging Face
+
+#### **Immediate Fix - Use Offline Mode**
+The chatbot will automatically fall back to offline mode if it can't download the model. Simply restart the chatbot:
+
+```bash
+cd chatbot
+python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8005

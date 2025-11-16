@@ -1,0 +1,34 @@
+Compliance Standards Supported by AI-Insight-Pro
+Helping You Achieve Regulatory Compliance
+[cite_start]AI-Insight-Pro is designed to assist organizations in aligning with various global and regional data privacy regulations[cite: 36, 94]. [cite_start]Our platform identifies sensitive data and provides insights crucial for maintaining compliance[cite: 37, 95].
+
+Supported Compliance Frameworks
+GDPR (General Data Protection Regulation):
+[cite_start]Focus: Protecting personal data and privacy for individuals within the European Union (EU) and European Economic Area (EEA)[cite: 38, 96].
+How AI-Insight-Pro Helps:
+- [cite_start]Identifies Personal Identifiable Information (PII) to ensure adherence to GDPR's data minimization and lawful processing requirements[cite: 39, 97].
+- [cite_start]Helps in mapping data flows and understanding where personal data resides[cite: 40, 98].
+- [cite_start]Supports data subject rights (e.g., right to access, rectification, erasure) by providing a clear inventory of sensitive data[cite: 41, 99].
+
+HIPAA (Health Insurance Portability and Accountability Act):
+[cite_start]Focus: Protecting sensitive patient health information (PHI) in the United States[cite: 42, 100].
+How AI-Insight-Pro Helps:
+- [cite_start]Identifies and classifies Protected Health Information (PHI) within your datasets[cite: 43, 101].
+- [cite_start]Assists healthcare organizations in understanding their PHI exposure and managing associated risks[cite: 44, 102].
+- [cite_start]Provides reporting capabilities relevant to HIPAA's security and privacy rules[cite: 45, 103].
+
+CCPA (California Consumer Privacy Act):
+[cite_start]Focus: Granting California consumers more rights regarding their personal information[cite: 46, 104].
+How AI-Insight-Pro Helps:
+- [cite_start]Helps identify personal information that falls under CCPA's definition[cite: 47, 105].
+- [cite_start]Assists in mapping data to consumer requests (e.g., right to know, right to delete)[cite: 48, 106].
+- [cite_start]Provides insights into data categories relevant for CCPA compliance reporting[cite: 49, 107].
+
+DPDP Act (Digital Personal Data Protection Act, India):
+[cite_start]Focus: India's comprehensive law for the protection of digital personal data[cite: 50, 108].
+How AI-Insight-Pro Helps:
+- [cite_start]Aids in identifying personal data and sensitive personal data as defined by the DPDP Act[cite: 51, 109].
+- [cite_start]Supports data fiduciaries in assessing their data processing activities for compliance[cite: 52, 110].
+
+Compliance Automation (Under Development)
+[cite_start]While AI-Insight-Pro currently provides critical insights and reporting to support your compliance efforts, full compliance automation (e.g., automated policy mapping for GDPR/CCPA/HIPAA) is an active area of development for future enhancements[cite: 53, 111].

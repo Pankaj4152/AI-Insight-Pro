@@ -1,0 +1,21 @@
+# Docker ignore file
+.git
+.gitignore
+*.md
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.coverage
+htmlcov/
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+logs/
+reports/
+*.bak
+*.backup

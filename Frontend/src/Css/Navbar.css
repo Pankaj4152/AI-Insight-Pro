@@ -1,0 +1,236 @@
+/* Horizontal Navbar Styles */
+.horizontal-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.horizontal-menu-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--foreground);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+  text-decoration: none;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.35rem 0.7rem;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, font-size 0.2s, font-weight 0.2s;
+}
+
+.horizontal-menu-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.horizontal-menu-item:hover::after,
+.horizontal-menu-item:focus::after {
+  width: 60%;
+  left: 20%;
+}
+
+.horizontal-menu-item.active {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.horizontal-menu-item.active::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Mobile Overlay */
+.mobile-overlay {
+  display: block; /* Always display to allow transitions */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 150;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Delay visibility change until after fade */
+  pointer-events: none;
+}
+
+.mobile-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.3s ease, visibility 0s; /* Immediate visibility when opening */
+}
+
+/* Ensure mobile overlay is hidden on desktop */
+@media (min-width: 901px) {
+  .mobile-overlay {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* Vertical Mobile Menu */
+.vertical-menu {
+  display: block; /* Always display to allow transitions */
+  position: fixed;
+  top: 0;
+  left: -280px; /* Start off-screen to the left */
+  width: 280px;
+  height: 100vh;
+  background: var(--background);
+  border-right: 1px solid var(--border);
+  z-index: 200;
+  transition: left 0.3s ease, visibility 0s 0.3s; /* Delay visibility change until after slide */
+  overflow-y: auto;
+  box-shadow: var(--shadow-md);
+  visibility: hidden; /* Hide with visibility instead of display */
+}
+
+.vertical-menu.open {
+  left: 0; /* Slide to visible position */
+  visibility: visible;
+  transition: left 0.3s ease, visibility 0s; /* Immediate visibility when opening */
+}
+
+/* Ensure vertical menu is hidden on desktop */
+@media (min-width: 901px) {
+  .vertical-menu {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+.vertical-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--card);
+}
+
+.vertical-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 1.25rem 0;
+}
+
+.vertical-menu-item {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  color: var(--foreground);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.vertical-menu-item:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+.vertical-menu-item.active {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+}
+
+.vertical-auth-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .horizontal-menu {
+    display: none;
+  }
+  /* Remove the automatic display of vertical-menu - let JavaScript control it */
+}
+
+@media (max-width: 480px) {
+  .vertical-menu {
+    width: 280px;
+    left: -280px; /* Consistent with main styles */
+    visibility: hidden;
+    transition: left 0.3s ease, visibility 0s 0.3s; /* Delay visibility change until after slide */
+  }
+  .vertical-menu.open {
+    left: 0; /* Slide to visible position */
+    visibility: visible;
+    transition: left 0.3s ease, visibility 0s; /* Immediate visibility when opening */
+  }
+}
+
+/* Conditional navbar styles */
+.sign-in-prompt {
+  background: var(--muted);
+  border-radius: 0.375rem;
+  margin: 0.5rem 0.75rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+  border: 1px dashed var(--border);
+}
+
+.sign-in-indicator {
+  background: transparent !important;
+  border: none !important;
+  color: var(--muted-foreground) !important;
+  font-size: 0.75rem !important;
+  font-style: italic;
+  opacity: 0.7;
+  cursor: default !important;
+  pointer-events: none;
+}
+
+.sign-in-indicator:hover::after {
+  width: 0% !important;
+}
+
+/* Auth button styles */
+.header-login-btn:hover {
+  background: var(--muted);
+  border-color: var(--border);
+}
+
+.header-signup-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.header-signup-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}

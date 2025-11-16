@@ -1,0 +1,29 @@
+**Updated `report_formats.txt`**
+```markdown
+Report Formats and Content in AI-Insight-Pro
+Overview of Report Generation
+AI-Insight-Pro provides comprehensive and customizable reports to help organizations understand, communicate, and manage their data privacy risks[cite: 214]. Reports are generated with LLM-powered summaries and interactive visualizations[cite: 215].
+
+Available Report Types
+- Executive Summary Reports: High-level overviews designed for management and non-technical stakeholders, focusing on key risk metrics and compliance status.
+- Technical Risk Assessments: Detailed reports for data and security teams, including in-depth SDE analysis, technical findings, and granular risk scores.
+- Compliance Gap Analysis: Reports specifically designed to highlight areas where your data practices diverge from regulatory requirements (e.g., GDPR, HIPAA).
+- Data Inventory Reports: Comprehensive listings of all discovered data sources, SDEs, and their locations, providing a complete data landscape view.
+
+Report Content
+Each report typically includes:
+- Executive Summary: A concise, LLM-generated overview of the key findings and overall risk posture[cite: 220].
+- Detailed Findings: Comprehensive analysis of identified SDEs, including their types, locations, and associated risk levels[cite: 221].
+- Risk Assessment: In-depth breakdown of the calculated risk scores, confidence levels, and contributing factors[cite: 222].
+- Compliance Status: Evaluation of alignment with relevant regulatory frameworks and identification of compliance gaps[cite: 223].
+- Recommendations: Actionable security measures and best practices to mitigate identified risks[cite: 224].
+- Visualizations: Charts and graphs illustrating risk trends, SDE distribution, and data source risk profiles[cite: 225].
+- Technical Details: Where applicable, technical guidance and data points for remediation[cite: 226].
+- Company Branding: Reports can include your company name and logo for professional presentation[cite: 227].
+- User Information: Details of the user who generated the report[cite: 228].
+- Timestamp: Date and time of report generation[cite: 228].
+
+Report Features
+- Customizable Format: Choose from various output formats to suit your needs[cite: 229].
+- Download Options: Reports can be directly downloaded or previewed within the UI[cite: 230].
+- Historical Reports: Access previous versions of generated reports for trend analysis and audit trails[cite: 230].

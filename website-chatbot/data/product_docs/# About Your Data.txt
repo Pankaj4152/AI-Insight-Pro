@@ -1,0 +1,25 @@
+# About Your Data
+
+## How Your Data is Handled
+- [cite_start]The AI-Insight-Pro system scans your data sources (databases, files, cloud) for Sensitive Data Elements (SDEs) such as emails, phone numbers, government IDs, and financial data[cite: 81, 120].
+- [cite_start]Scanning is performed using pattern-based and context-aware detection, ensuring accurate identification of sensitive information[cite: 82, 121].
+- [cite_start]No sensitive data is stored permanently; findings are used only for risk assessment and reporting[cite: 83, 122].
+
+## Privacy and Security
+- [cite_start]Credentials for data sources are stored securely (environment variables, key vaults)[cite: 84, 123].
+- [cite_start]All data access is logged and monitored for compliance[cite: 85, 124].
+- [cite_start]The system supports encryption, masking, and tokenization to protect high-risk data[cite: 86, 125].
+- [cite_start]Only authorized users can trigger scans and access reports[cite: 87, 126].
+
+## Compliance
+- [cite_start]The AI-Insight-Pro platform is designed to help you comply with regulations such as GDPR, CCPA, and DPDP Act[cite: 88, 127].
+- [cite_start]Reports include compliance status and actionable recommendations[cite: 89, 128].
+- [cite_start]Data retention policies are enforced for scan results and reports[cite: 89, 128].
+
+## Your Control
+- [cite_start]You choose which data sources to scan and which SDEs to detect[cite: 90, 129].
+- [cite_start]You can add custom patterns or exclude certain data types[cite: 91, 130].
+- [cite_start]You can export, download, or delete reports as needed[cite: 92, 131].
+
+## Support
+- [cite_start]For questions about your data, privacy, or compliance, contact the support team or refer to the documentation[cite: 93, 132].

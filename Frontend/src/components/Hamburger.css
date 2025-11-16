@@ -1,0 +1,148 @@
+.hamburger {
+  display: flex; /* Show by default - JavaScript will control visibility */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 3001; /* Highest z-index to stay above everything */
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: fixed; /* Use fixed positioning to avoid layout issues */
+  top: 10px; /* Position from top */
+  left: 8px; /* Position from left */
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent shrinking */
+  background: rgba(var(--background-rgb), 0.9); /* Semi-transparent background */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Show hamburger on mobile, hide on desktop */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+}
+
+@media (min-width: 901px) {
+  .hamburger {
+    display: none !important;
+  }
+}
+
+.hamburger:hover {
+  background: var(--muted);
+  transform: scale(1.05);
+}
+
+.hamburger:active {
+  transform: scale(0.95);
+}
+
+.hamburger-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 2px auto;
+  background: var(--primary);
+  border-radius: 2px;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  position: relative;
+}
+
+.hamburger-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: inherit;
+  transition: all 0.3s ease;
+}
+
+.hamburger.open {
+  background: rgba(var(--muted-rgb), 0.95); /* More opaque when open */
+  opacity: 1 !important; /* Ensure visibility when open */
+  visibility: visible !important;
+  display: flex !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.hamburger.open .hamburger-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+  background: var(--accent);
+}
+
+.hamburger.open .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.open .hamburger-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+  background: var(--accent);
+}
+
+/* Hover effects for open state */
+.hamburger.open:hover .hamburger-bar:nth-child(1),
+.hamburger.open:hover .hamburger-bar:nth-child(3) {
+  background: var(--primary);
+}
+
+/* Hamburger visibility controlled by JavaScript - remove CSS media query */
+/* The hamburger will only show when isMobileView is true in JavaScript */
+
+@media (max-width: 480px) {
+  .hamburger {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    top: 12px;
+    left: 8px;
+    z-index: 3001;
+    display: flex !important; /* Force display on mobile */
+  }
+  .hamburger-bar {
+    width: 20px;
+    height: 2px;
+    margin: 2px auto;
+  }
+  
+  .hamburger.open .hamburger-bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  
+  .hamburger.open .hamburger-bar:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 360px) {
+  .hamburger {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    top: 14px;
+    left: 6px;
+  }
+  .hamburger-bar {
+    width: 18px;
+    height: 2px;
+    margin: 2px auto;
+  }
+  
+  .hamburger.open .hamburger-bar:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  
+  .hamburger.open .hamburger-bar:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+}

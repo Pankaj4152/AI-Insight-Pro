@@ -1,0 +1,32 @@
+Data Sources Supported by AI-Insight-Pro
+Overview of Supported Data Sources
+[cite_start]AI-Insight-Pro is designed to integrate with a wide range of data sources, enabling comprehensive scanning and risk assessment across your infrastructure[cite: 131]. [cite_start]We support various cloud databases, cloud storage solutions, and on-premise databases[cite: 132].
+
+Cloud Databases
+- [cite_start]Google BigQuery: For large-scale data warehousing and analytics[cite: 133].
+- [cite_start]PostgreSQL: Popular open-source relational database, both cloud-hosted and on-premise[cite: 134].
+- [cite_start]MySQL: Widely used open-source relational database, both cloud-hosted and on-premise[cite: 134].
+Cloud Storage
+- [cite_start]Google Cloud Storage (GCS) Buckets: For unstructured data storage in Google Cloud[cite: 135].
+- [cite_start]AWS S3: For unstructured data storage in Amazon Web Services[cite: 136].
+On-Premise Databases
+- [cite_start]Local PostgreSQL Servers: Connect directly to your local PostgreSQL instances[cite: 137].
+- [cite_start]Local MySQL Servers: Connect directly to your local MySQL instances[cite: 138].
+File Systems
+- [cite_start]Local File Storage: Scan files stored on your local machine or network drives[cite: 139].
+- [cite_start]Network File Storage: Integrate with shared network drives for data scanning[cite: 140].
+
+Connection Process
+- [cite_start]Source Selection: Choose the data source type from the provided dropdown in the "Connect" UI[cite: 141].
+- [cite_start]Credential Entry: Input the necessary connection credentials[cite: 142].
+- [cite_start]For BigQuery: Project ID, Dataset ID, and your Service Account JSON file[cite: 142].
+- [cite_start]For PostgreSQL/MySQL: Host, Port, Database Name, Username, and Password[cite: 143].
+- [cite_start]For GCS Buckets: Project ID, Bucket Name, and your Service Account JSON file[cite: 143].
+- [cite_start]Connection Testing: The system validates the provided credentials to ensure a successful connection[cite: 144].
+- [cite_start]Registration: Successfully connected sources are registered and ready for scanning[cite: 145].
+
+Credential Security
+- [cite_start]Encrypted Storage: All connection credentials are encrypted at rest using industry-standard protocols[cite: 146].
+- [cite_start]Secure Transmission: Data transfers, including credentials, are secured with HTTPS encryption[cite: 147].
+- [cite_start]Access Control: Role-based access ensures only authorized users can view or manage connection details[cite: 148].
+- [cite_start]Audit Logging: All connection attempts and usage are logged for security and compliance auditing[cite: 148].

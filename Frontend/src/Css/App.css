@@ -1,0 +1,1019 @@
+/* Base font and transition styles */
+html, body {
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, var(--background) 0%, var(--secondary) 100%);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Ensure pages start from top */
+html {
+  scroll-padding-top: 64px; /* Account for fixed header */
+}
+
+/* Page transition optimizations */
+.main-content {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Modal animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    transform: scale(0.95) translateY(-10px); 
+    opacity: 0; 
+  }
+  to { 
+    transform: scale(1) translateY(0); 
+    opacity: 1; 
+  }
+}
+
+/* Enhanced modal positioning for perfect centering */
+[data-modal="role-selection"] {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  /* Ensure modal is always centered regardless of scroll position */
+  transform: none !important;
+}
+
+/* Additional centering for modal content */
+[data-modal="role-selection"] > div {
+  transform: translateZ(0); /* Force hardware acceleration */
+  position: relative;
+  margin: auto;
+}
+
+/* Page transition loading overlay */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.loading-overlay.show {
+  opacity: 1;
+}
+
+/* Remove the padding that was causing the white rectangle */
+
+.main-content {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family);
+}
+
+/* Consolidated Title Styling (based on dashboard-title) */
+.page-title {
+  font-family: var(--font-alatsi);
+  font-size: 4rem; /* Matches dashboard-title */
+  color: var(--title-color);
+  margin-bottom: 1rem;
+  text-align: left;
+  letter-spacing: 6px;
+  background: linear-gradient(135deg, var(--title-gradient-start), var(--title-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  overflow: hidden;
+  font-size: 2.5rem;
+}
+
+.theme-dark .page-title {
+  text-shadow: 0 0 15px rgba(100, 181, 246, 0.5), 0 0 30px rgba(76, 175, 80, 0.3);
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  animation: titleUnderline 3s infinite ease-in-out;
+}
+
+@keyframes titleUnderline {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* App.css additions for fixed hamburger and toggle button */
+.fixed-top-right {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  z-index: 2001;
+}
+
+/* Remove toggle-btn styles */
+.toggle-btn { display: none !important; }
+
+/* Animate nav-links-vertical */
+.nav-links-vertical {
+  list-style: none;
+  padding: 0 0 0 1.5rem;
+  margin: 0;
+  flex: 1;
+  width: 100%;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.navbar-vertical:not(.open) .nav-links-vertical {
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
+.nav-links-vertical li {
+  margin: 1rem 0;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  border-radius: 6px;
+}
+.nav-links-vertical li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.08rem;
+  padding: 0.5rem 1rem;
+  display: block;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.nav-links-vertical li a:hover {
+  background: #00bcd4;
+  color: #fff;
+  transform: translateX(8px) scale(1.05);
+}
+
+/* Responsive styles for page title */
+@media (max-width: 1200px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+  }
+  
+  body {
+    font-size: 14px;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .global-hamburger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2000;
+  }
+  
+  .global-hamburger .line1,
+  .global-hamburger .line2,
+  .global-hamburger .line3 {
+    background-color: #fff;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+  }
+  
+  .main-content {
+    padding: 0.75rem;
+  }
+  
+  .nav-links-vertical li {
+    margin: 0.75rem 0;
+  }
+  
+  .nav-links-vertical li a {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+  
+  .main-content {
+    padding: 0.5rem;
+  }
+  
+  .nav-links-vertical li a {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+/* Remove old navbar fixed positioning if present */
+.navbar {
+  position: static !important;
+}
+
+/* Light Theme */
+:root {
+  --font-family: ui-sans-serif, sans-serif;
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(215, 25%, 15%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(215, 25%, 15%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(215, 25%, 15%);
+  --primary: hsl(198, 88%, 32%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --primary-hover: hsl(198, 88%, 28%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(215, 25%, 15%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --accent-risk: hsl(210, 20%, 94%);
+  --accent-foreground-risk: hsl(215, 25%, 15%);
+  --accent: hsl(172, 76%, 47%);
+  --accent-foreground: hsl(0, 0%, 98%);
+
+  --success: hsl(142, 76%, 36%);
+  --success-foreground: hsl(0, 0%, 98%);
+  --warning: hsl(48, 96%, 53%);
+  --warning-foreground: hsl(215, 25%, 15%);
+  --destructive: hsl(0, 84%, 60%);
+  --description-color: hsl(215, 25%, 15%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --border: hsl(220, 13%, 91%);
+  --input: hsl(220, 13%, 91%);
+  --input-border:hsl(215, 25%, 15%);
+  --ring: hsl(198, 88%, 32%);
+  --radius: 0.5rem;
+  --border-radius: 0.5rem;
+  --title-gradient-start: hsl(198, 88%, 32%);
+  --title-gradient-end: hsl(172, 76%, 47%);
+  --primary-gradient: linear-gradient(135deg, hsl(198, 88%, 32%), hsl(172, 76%, 47%));
+  --secondary-gradient: linear-gradient(135deg, hsl(210, 40%, 96%), hsl(0, 0%, 100%));
+  --hero-gradient: linear-gradient(135deg, hsl(198, 88%, 32%), hsl(172, 76%, 47%), hsl(142, 76%, 36%));
+  --shadow-sm: 0 1px 2px 0 hsl(215, 25%, 15% / 0.05);
+  --shadow-md: 0 4px 6px -1px hsl(215, 25%, 15% / 0.1), 0 2px 4px -1px hsl(215, 25%, 15% / 0.06);
+  --shadow-lg: 0 10px 15px -3px hsl(215, 25%, 15% / 0.1), 0 4px 6px -2px hsl(215, 25%, 15% / 0.05);
+  --shadow-glow: 0 0 20px hsl(198, 88%, 32% / 0.3);
+  --logout-hover-bg: #111;
+  --primary-sun: hsl(57, 92%, 47%);
+  
+  /* RGB values for glassy effects */
+  --background-rgb: 255, 255, 255;
+  --border-rgb: 220, 223, 232;
+  --muted-rgb: 239, 244, 247; /* RGB for hsl(210, 40%, 96%) */
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --background: hsl(215, 28%, 7%);
+  --foreground: hsl(210, 40%, 98%);
+  --card: hsl(215, 28%, 9%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --popover: hsl(215, 28%, 9%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --primary: hsl(198, 88%, 42%);
+  --primary-foreground: hsl(215, 28%, 7%);
+  --primary-hover: hsl(198, 88%, 38%);
+  --secondary: hsl(215, 28%, 12%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --muted: hsl(215, 28%, 12%);
+  --muted-foreground: hsl(215, 16%, 65%);
+  --accent: hsl(210, 40%, 20%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --success: hsl(142, 76%, 46%);
+  --success-foreground: hsl(215, 28%, 7%);
+  --warning: hsl(48, 96%, 63%);
+  --warning-foreground: hsl(215, 28%, 7%);
+  --destructive: hsl(0, 84%, 70%);
+  --destructive-foreground: hsl(215, 28%, 7%);
+  --border: hsl(215, 28%, 15%);
+  --input: hsl(215, 28%, 15%);
+  --ring: hsl(198, 88%, 42%);
+  --radius: 0.5rem;
+  --border-radius: 0.5rem;
+  --title-gradient-start: hsl(198, 88%, 42%);
+  --title-gradient-end: hsl(172, 76%, 57%);
+  --primary-gradient: linear-gradient(135deg, hsl(198, 88%, 42%), hsl(172, 76%, 57%));
+  --secondary-gradient: linear-gradient(135deg, hsl(215, 28%, 12%), hsl(215, 28%, 9%));
+  --hero-gradient: linear-gradient(135deg, hsl(198, 88%, 42%), hsl(172, 76%, 57%), hsl(142, 76%, 46%));
+  --shadow-sm: 0 1px 2px 0 hsl(215, 28%, 7% / 0.3);
+  --shadow-md: 0 4px 6px -1px hsl(215, 28%, 7% / 0.4), 0 2px 4px -1px hsl(215, 28%, 7% / 0.3);
+  --shadow-lg: 0 10px 15px -3px hsl(215, 28%, 7% / 0.4), 0 4px 6px -2px hsl(215, 28%, 7% / 0.3);
+  --shadow-glow: 0 0 20px hsl(198, 88%, 42% / 0.4);
+  --logout-hover-bg: #000;
+  
+  /* RGB values for glassy effects (dark theme) */
+  --background-rgb: 15, 23, 42;
+  --border-rgb: 30, 41, 59;
+  --muted-rgb: 30, 41, 59; /* RGB for hsl(215, 28%, 12%) */
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: background 0.2s, border 0.2s, color 0.2s;
+}
+.logout-btn:hover {
+  background: var(--logout-hover-bg);
+  color: #fff;
+  border-color: var(--logout-hover-bg);
+}
+
+/* Footer Styles */
+.main-footer {
+  background: var(--background);
+  border-top: 1px solid var(--border);
+  padding: 3rem 0 1rem 0;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-section h4 {
+  color: var(--foreground);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.footer-brand-text h3 {
+  color: var(--foreground);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.5px;
+}
+
+.footer-tagline {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.contact-item:hover {
+  color: var(--primary);
+}
+
+.contact-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links li a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer-links li a:hover {
+  color: var(--primary);
+}
+
+.link-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.services-note {
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 0.5rem;
+  opacity: 0.8;
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.copyright {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* About Page Styles */
+.about-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-subtitle {
+  font-size: 1.2rem;
+  color: var(--muted-foreground);
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.about-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--primary);
+}
+
+.section-header h2 {
+  color: var(--foreground);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.about-section p {
+  color: var(--muted-foreground);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.value-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.value-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.value-item h3 {
+  color: var(--foreground);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.value-item p {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.contact-btn.primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: 1px solid var(--primary);
+}
+
+.contact-btn.primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.contact-btn.secondary {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.contact-btn.secondary:hover {
+  background: var(--secondary);
+  border-color: var(--primary);
+}
+
+/* Responsive Footer */
+@media (max-width: 1024px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-brand {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .about-page {
+    padding: 1rem;
+  }
+  
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 0 1rem;
+  }
+  
+  .about-section {
+    padding: 1.5rem;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+/* Auth container and form styles */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: var(--background);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 500px;
+  background: var(--card);
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.auth-header p {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.75rem;
+  color: var(--muted-foreground);
+  z-index: 1;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-wrapper input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-wrapper input.error {
+  border-color: var(--destructive);
+}
+
+.input-wrapper input.success {
+  border-color: #10B981;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  padding: 0.25rem;
+  z-index: 1;
+}
+
+.verify-button {
+  position: absolute;
+  right: 0.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.verify-button:hover {
+  background: var(--primary-hover);
+}
+
+.verify-button:disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+}
+
+.auth-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.auth-button:hover {
+  background: var(--primary-hover);
+}
+
+.auth-button:disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+}
+
+.auth-button.secondary {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.auth-button.secondary:hover {
+  background: var(--muted);
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-actions .auth-button {
+  flex: 1;
+}
+
+.error-message {
+  color: var(--destructive);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.success-message {
+  color: #10B981;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.message.success {
+  background: #F0FDF4;
+  color: #166534;
+  border: 1px solid #BBF7D0;
+}
+
+.message.error {
+  background: #FEF2F2;
+  color: #991B1B;
+  border: 1px solid #FECACA;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.auth-footer p {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: inherit;
+}
+
+.link-button:hover {
+  color: var(--primary-hover);
+}
+
+.admin-section {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.admin-section h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.admin-section p {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.verified-admins {
+  background: var(--muted);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.verified-admins h4 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+}
+
+.verified-admin-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  background: var(--muted);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+/* Mobile menu z-index fixes */
+@media (max-width: 900px) {
+  /* Ensure main content doesn't interfere with mobile menu */
+  .main-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Aggressive z-index reset for ALL page content when mobile menu is open */
+  body.mobile-menu-open {
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  body.mobile-menu-open *:not(.mobile-overlay):not(.vertical-menu):not(.hamburger):not(.vertical-menu-header):not(.vertical-menu-list):not(.vertical-menu-item):not(.hamburger-bar) {
+    z-index: 1 !important;
+    position: relative !important;
+    transform: none !important;
+    isolation: auto !important;
+  }
+
+  /* Force page sections to be behind mobile menu */
+  body.mobile-menu-open .main-content,
+  body.mobile-menu-open .page-section,
+  body.mobile-menu-open .home-section,
+  body.mobile-menu-open .auth-container,
+  body.mobile-menu-open .auth-card,
+  body.mobile-menu-open .main-header {
+    z-index: 1 !important;
+    isolation: auto !important;
+    transform: none !important;
+    position: relative !important;
+  }
+
+  /* Ensure mobile menu components are always on top */
+  .mobile-overlay,
+  .vertical-menu,
+  .hamburger {
+    z-index: 999999 !important;
+    position: fixed !important;
+  }
+}

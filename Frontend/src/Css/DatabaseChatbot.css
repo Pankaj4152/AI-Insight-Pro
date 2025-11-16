@@ -1,0 +1,365 @@
+/* Database Chatbot Enhanced Styles */
+.database-chatbot-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background) 0%, #f8fafc 100%);
+  color: var(--foreground);
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1.5rem;
+  margin: 0;
+  gap: 0.5rem;
+}
+
+.database-header {
+  text-align: center;
+  padding: 0.75rem 2rem 0.5rem;
+  background: linear-gradient(135deg, var(--card) 0%, rgba(255, 255, 255, 0.9) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+@keyframes shimmer {
+  0%, 100% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+}
+
+.database-header h1 {
+  margin-bottom: 0.25rem;
+  position: relative;
+  font-size: 2rem;  
+  z-index: 1;
+}
+
+.database-header p {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Database main removed - elements now directly in page */
+
+
+
+.welcome-card {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--card) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border-radius: 16px;
+  margin-bottom: 0.25rem;
+  position: relative;
+  overflow: visible;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+
+
+
+
+.quick-suggestion-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  background: var(--card);
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 0.25rem;
+}
+
+.quick-suggestion {
+  padding: 0.5rem 1rem;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.quick-suggestion:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+.suggested-questions li:hover {
+  background: rgba(0, 123, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.message-bubble {
+  max-width: 90%;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  word-wrap: break-word;
+  line-height: 1.5;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-bubble.user-message {
+  align-self: flex-end;
+  background: linear-gradient(135deg, var(--primary) 0%, #0056b3 100%);
+  color: white;
+  border-bottom-right-radius: 8px;
+  margin-left: auto;
+}
+
+.message-bubble.bot-message {
+  align-self: flex-start;
+  background: linear-gradient(135deg, var(--card) 0%, rgba(255, 255, 255, 0.95) 100%);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 8px;
+  margin-right: auto;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 1rem;
+}
+
+.typing-indicator span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: typing 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+@keyframes typing {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.database-input-section {
+  padding: 0.5rem 1.5rem;
+  background: linear-gradient(135deg, var(--card) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 10;
+  /* margin-top: 9rem; */
+}
+
+.input-form {
+  display: flex;
+  gap: 0.75rem;
+  max-width: 600px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.input-form input {
+  flex: 1;
+  padding: 0.875rem 1.25rem;
+  border: 2px solid var(--border);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--foreground);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  max-width: 400px;
+}
+
+.input-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.15);
+  background: rgba(255, 255, 255, 1);
+}
+
+.input-form input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input-form button {
+  padding: 0.875rem;
+  background: linear-gradient(135deg, var(--primary) 0%, #0056b3 100%);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+}
+
+.input-form button:hover:not(:disabled) {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.4);
+}
+
+.input-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.input-form button svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .database-header {
+    padding: 0.75rem 1rem 0.5rem;
+  }
+  
+  .database-header p {
+    font-size: 0.9rem;
+  }
+  
+  .database-chatbot-page {
+    padding: 0.75rem 1rem;
+  }
+  
+  .welcome-card {
+    padding: 1.25rem 0.75rem;
+    max-width: 500px;
+  }
+  
+  .quick-suggestion-bar {
+    max-width: 500px;
+    padding: 0.5rem 1rem;
+  }
+  
+  .message-bubble {
+    max-width: 92%;
+    padding: 0.875rem 1.25rem;
+  }
+  
+  .database-input-section {
+    padding: 0.5rem 1rem;
+  }
+  
+  .input-form {
+    max-width: 500px;
+  }
+  
+  .input-form input {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    max-width: 350px;
+  }
+  
+  .input-form button {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .input-form button svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .database-header {
+    padding: 0.5rem 1rem 0.25rem;
+  }
+  
+  .database-header p {
+    font-size: 0.8rem;
+  }
+  
+  .database-chatbot-page {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .welcome-card {
+    padding: 1rem 0.5rem;
+    max-width: 400px;
+  }
+  
+  .quick-suggestion-bar {
+    max-width: 400px;
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .quick-suggestion {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .message-bubble {
+    max-width: 95%;
+    padding: 0.75rem 1rem;
+  }
+  
+  .database-input-section {
+    padding: 0.375rem 0.75rem;
+  }
+  
+  .input-form {
+    gap: 0.5rem;
+    max-width: 400px;
+  }
+  
+  .input-form input {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.85rem;
+    max-width: 280px;
+  }
+  
+  .input-form button {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .input-form button svg {
+    width: 14px;
+    height: 14px;
+  }
+} 

@@ -1,0 +1,1091 @@
+/* src/Css/SDECatalogue.css */
+
+/* Global CSS Variables - Consolidated */
+:root {
+  /* DARK THEME DEFAULTS */
+  --body-background-color: #2a2929;
+  --card-background: #2f2e2e;
+  --text-color: #f5f5f5;
+  --description-color: #cccccc;
+  --navbar-logo-color-start: #16e3af; /* Green-ish highlight */
+  --signup-button-background-start: #16e3af;
+  --signup-button-background-end: #48ba99;
+  --signup-button-text-color: #1a1a1a; /* Dark text for primary buttons on green gradient */
+  --box-shadow-color: rgba(0, 0, 0, 0.4);
+  --font-inter: 'Inter', sans-serif;
+  --font-alatsi: 'Alatsi', sans-serif;
+  --input-bg-white: #ffffff; /* White background for inputs in dark theme */
+  --input-text-black: #000000; /* Black text for inputs in dark theme */
+  --input-border-dark: #444444; /* Dark border for inputs */
+  --placeholder-muted: #666666; /* Grey placeholder in dark inputs */
+
+  /* SDE Catalogue specific colors/variables - DARK THEME */
+  /* Removed --sde-checkbox-item-bg, --sde-checkbox-item-hover-bg, --sde-selected-item-bg */
+  --sde-item-border-color: #555555; /* NEW: Border for individual SDE items */
+  --sde-item-hover-border-color: var(--navbar-logo-color-start); /* Highlight border on hover */
+  --remove-button-bg: #dc3545; /* Red */
+  --remove-button-hover-bg: #c82333; /* Darker red */
+}
+
+/* ---------------------------------------------------------------------- */
+/* LIGHT THEME OVERRIDES (Targeted additions to address the visual issue) */
+/* ---------------------------------------------------------------------- */
+body[data-theme='light'] {
+  --body-background-color: #f0f2f5; /* Light grey background */
+  --card-background: #ffffff; /* White cards */
+  --text-color: #333333; /* Darker text for readability */
+  --description-color: #555555; /* Slightly lighter dark text for secondary content */
+  --box-shadow-color: rgba(0, 0, 0, 0.1); /* Lighter shadow */
+
+  /* Input/Select/Textarea colors for Light Theme */
+  --input-bg-white: #e0e0e0; /* Light grey input background */
+  --input-text-black: #333333; /* Dark text in inputs */
+  --input-border-dark: #b0b0b0; /* Lighter border for inputs */
+  --placeholder-muted: #888888; /* Slightly lighter placeholder */
+
+  /* SDE Catalogue specific colors/variables - LIGHT THEME */
+  /* Removed --sde-checkbox-item-bg, --sde-checkbox-item-hover-bg, --sde-selected-item-bg */
+  --sde-item-border-color: #cccccc; /* NEW: Lighter border for light theme */
+  --sde-item-hover-border-color: var(--navbar-logo-color-start); /* Highlight border on hover (darker green) */
+
+  --remove-button-bg: #dc3545; /* Red remains */
+  --remove-button-hover-bg: #c82333; /* Darker red remains */
+}
+
+/* Fade-in animation for the page */
+.fade-in {
+  opacity: 0;
+  animation: fadeInAnimation 0.5s ease forwards;
+}
+
+@keyframes fadeInAnimation {
+  to {
+    opacity: 1;
+  }
+}
+
+.sde-catalogue-container {
+  background-color: var(--body-background-color); /* Uses variable */
+  color: var(--text-color); /* Uses variable */
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: var(--font-inter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 0; /* Remove gap to prevent spacing issues */
+}
+
+/* Fix container spacing */
+.sde-catalogue-container > * {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.page-title { /* For h1 */
+  font-family: var(--font-alatsi);
+  font-size: 3rem;
+  color: var(--text-color); /* Uses variable */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.connect-description { /* Reusing the description style from Connect.css */
+  font-size: 1.1rem;
+  color: var(--description-color); /* Uses variable */
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+/* General Card style */
+.card {
+  background-color: var(--card-background); /* Uses variable */
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  box-shadow: 0 4px 20px var(--box-shadow-color); /* Uses variable */
+  margin-bottom: 0; /* Remove default margin */
+  width: 100%;
+  /* max-width is set by parent flex/grid container or individually as needed */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.card-title { /* For titles within .card elements */
+  font-family: var(--font-alatsi);
+  font-size: 1.8rem;
+  color: var(--text-color); /* Uses variable */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.form-group { /* For labels and inputs/selects */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color); /* Uses variable */
+  display: flex;
+  align-items: center;
+}
+
+.text-input-style,
+.dropdown-style,
+.form-textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--input-border-dark); /* Uses variable */
+  background-color: var(--input-bg-white); /* Uses variable */
+  color: var(--input-text-black); /* Uses variable */
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.text-input-style::placeholder,
+.form-textarea::placeholder {
+  color: var(--placeholder-muted); /* Uses variable */
+}
+
+.text-input-style:focus,
+.dropdown-style:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--navbar-logo-color-start); /* Should be fine, bright green on light inputs */
+  box-shadow: 0 0 0 3px rgba(22, 227, 175, 0.5); /* Keep as is or make light-theme specific */
+}
+
+.dropdown-style {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--input-border-dark);
+  background-color: var(--background);
+  color: var(--foreground);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='292.4' height='292.4'%3E%3Cpath fill='%23000000' d='M287 69.4a17.6 17.6 0 0 1-3.8-13.9l-20-20a17.6 17.6 0 0 1-13.9-3.8c-5.8-1.5-12.4-1.5-18.2 0L146.2 174.4 63.8 31.7c-5.8-1.5-12.4-1.5-18.2 0L25.6 51.7a17.6 17.6 0 0 1-3.8 13.9c-1.5 5.8-1.5 12.4 0 18.2l128 128c3.8 3.8 8.8 5.8 13.9 5.8s10.1-2 13.9-5.8l128-128c1.5-5.8 1.5-12.4 0-18.2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7em center;
+  background-size: 0.65em auto;
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.info-text {
+  font-size: 1rem;
+  color: var(--description-color); /* Uses variable */
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Enhanced Button Styles using App.css theme */
+.enhanced-button {
+  padding: 0.75rem 1.75rem;
+  border: none;
+  border-radius: 12px; /* More rounded edges */
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  font-family: var(--font-family);
+  letter-spacing: 0.5px;
+}
+
+.enhanced-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.enhanced-button:hover::before {
+  left: 100%;
+}
+
+.enhanced-button-primary {
+  background: var(--primary-gradient);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.enhanced-button-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--primary-hover);
+}
+
+.enhanced-button-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.enhanced-button-primary:disabled {
+  background: var(--muted);
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border);
+}
+
+.enhanced-button-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  box-shadow: var(--shadow-md), 0 0 0 1px var(--border);
+  border: 1px solid var(--border);
+}
+
+.enhanced-button-secondary:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--accent);
+}
+
+.enhanced-button-secondary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Original Button Styles (Primary & Secondary) - keeping for backward compatibility */
+.button-style-primary {
+  background: linear-gradient(to right, var(--signup-button-background-start), var(--signup-button-background-end)); /* Uses variables */
+  color: var(--signup-button-text-color); /* Uses variable */
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+  box-shadow: 0 4px 10px var(--box-shadow-color); /* Uses variable */
+  display: inline-block;
+  text-align: center;
+}
+
+.button-style-primary:enabled {
+  background: linear-gradient(to right, var(--signup-button-background-start), var(--signup-button-background-end)); /* Re-apply variables for enabled */
+  color: var(--signup-button-text-color); /* Re-apply variable for enabled */
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(22, 227, 175, 0.3);
+  opacity: 1;
+  filter: brightness(1.1);
+}
+
+.button-style-primary:enabled:hover {
+  background: linear-gradient(to right, #1fffc3, #5fffc3);
+  color: #111;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(22, 227, 175, 0.4);
+}
+
+.button-style-primary:disabled {
+  background: var(--neutral-light, #bdbdbd) !important;
+  color: var(--placeholder-muted) !important;
+  cursor: not-allowed !important;
+  box-shadow: none;
+  opacity: 0.7;
+  filter: none;
+}
+
+.button-style-secondary {
+  /* No explicit background variable for secondary buttons, so using a fixed color */
+  background: var(--neutral-dark, #555); /* This will be dark grey in both themes. Its text color will adapt. */
+  color: var(--text-color); /* Uses text-color variable. Will be dark on dark grey in light mode, okay contrast. */
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px var(--box-shadow-color); /* Uses variable */
+  display: inline-block;
+  text-align: center;
+}
+
+.button-style-secondary:hover {
+  background-color: var(--neutral-hover, #666); /* Slightly lighter dark grey on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px var(--box-shadow-color); /* Uses variable */
+}
+
+/* SDE Grid Container */
+.sde-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Individual SDE checkbox items */
+.sde-checkbox-item {
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.form-group-checkbox {
+  background-color: transparent; /* Changed to transparent */
+  padding: 0.8rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--sde-item-border-color); /* Use theme-adaptive border color */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  display: flex; /* Ensure checkbox and label stay inline */
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group-checkbox:hover {
+  background-color: var(--sde-item-hover-border-color); /* Use highlight color for hover background */
+  border-color: var(--sde-item-hover-border-color); /* Match hover border to background */
+  color: var(--signup-button-text-color); /* Ensure text is readable on hover background */
+}
+
+/* Specific styling for label inside hovered checkbox for better text visibility */
+.form-group-checkbox:hover label {
+    color: var(--signup-button-text-color); /* Make label text white on green hover */
+}
+
+
+.form-group-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--navbar-logo-color-start); /* Checkbox color uses variable (green highlight) */
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.form-group-checkbox label {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-color); /* Uses variable for normal state */
+  cursor: pointer;
+  flex-grow: 1;
+}
+
+/* Selected SDEs List */
+.selected-sdes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.selected-sde-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent; /* Changed to transparent */
+  padding: 0.8rem 1.2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--sde-item-border-color); /* Use theme-adaptive border color */
+  font-size: 1rem;
+  color: var(--text-color); /* Uses variable */
+}
+
+.selected-sde-item span {
+  flex-grow: 1;
+  margin-right: 1rem;
+}
+
+.small-button { /* For the 'Remove' button within selected SDEs */
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: var(--border-radius);
+  background-color: var(--remove-button-bg); /* Uses variable */
+  color: var(--signup-button-text-color); /* Uses variable */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.small-button:hover {
+  background-color: var(--remove-button-hover-bg); /* Uses variable */
+  transform: translateY(-1px);
+}
+
+/* Toast notification styles - compact bottom-right positioning */
+.toast-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.toast-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.toast-info, .toast-warning {
+  background: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+/* NEW: Layout containers for side-by-side elements */
+.sde-layout-section {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  gap: 2rem; /* Space between the cards */
+  width: 100%;
+  max-width: 900px; /* Constrain overall width */
+  margin-bottom: 2rem; /* Space below this section */
+}
+
+.sde-layout-section .card {
+  flex: 1 1 calc(50% - 1rem); /* Distribute space, accounting for gap */
+  min-width: 300px; /* Minimum width before wrapping to single column */
+  margin-bottom: 0; /* Remove individual card bottom margin, handled by parent gap */
+}
+
+
+/* Main layout for SDE selection view */
+.sde-main-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+  width: 100%;
+  margin-bottom: 2rem;
+  max-width: 1400px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* SDE sections */
+.sde-selection-section,
+.selected-sdes-section {
+  width: 100%;
+  min-width: 0; /* Allow flex items to shrink below content size */
+  overflow: hidden;
+}
+
+/* Info cards container */
+.sde-info-cards {
+  margin-bottom: 2rem;
+}
+
+/* Responsive info cards styling */
+.sde-info-cards {
+  display: grid;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Company and Industry cards */
+.company-info-card,
+.industry-filter-card {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Ensure proper spacing between sections */
+.sde-catalogue-container > * {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.sde-catalogue-container > *:not(:last-child) {
+  margin-bottom: 1.5rem; /* Add consistent spacing */
+}
+
+/* Prevent card overlaps */
+.card {
+  margin-bottom: 0 !important; /* Override any conflicting margins */
+  position: relative;
+  z-index: 1;
+}
+
+/* Specific spacing for different sections */
+.sde-selection-section .card,
+.selected-sdes-section .card {
+  margin-bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .sde-main-layout {
+    gap: 2.5rem !important;
+    padding: 0 1rem;
+  }
+  
+  .sde-selection-section .card,
+  .selected-sdes-section .card {
+    position: static !important; /* Remove sticky positioning on smaller screens */
+    padding: 2rem !important;
+  }
+  
+  .sde-content-section h2 {
+    font-size: 1.8rem !important;
+  }
+  
+  .selected-sdes-section h3 {
+    font-size: 1.5rem !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sde-main-layout {
+    gap: 2rem !important;
+    padding: 0 0.5rem;
+  }
+  
+  .sde-info-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 600px;
+    padding: 0 0.5rem;
+  }
+  
+  .sde-checkbox-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+  
+  .sde-selection-section .card,
+  .selected-sdes-section .card {
+    padding: 1.75rem !important;
+  }
+  
+  .sde-content-section h2 {
+    font-size: 1.6rem !important;
+  }
+  
+  .selected-sdes-section h3 {
+    font-size: 1.4rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .sde-catalogue-container {
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .sde-catalogue-container > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+  
+  .sde-main-layout {
+    gap: 1.5rem !important;
+    padding: 0 0.25rem;
+  }
+  
+  .sde-info-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 100%;
+    padding: 0 0.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .company-info-card,
+  .industry-filter-card {
+    padding: 1.25rem !important;
+    min-height: 100px !important;
+  }
+  
+  .company-info-card h3,
+  .industry-filter-card h3 {
+    font-size: 1rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
+  .connect-description {
+    font-size: 1.1rem;
+  }
+  .card { /* Apply general card padding to all cards */
+    padding: 1.5rem;
+  }
+  .card-title {
+    font-size: 1.6rem;
+  }
+  .form-group label {
+    font-size: 0.95rem;
+  }
+  .text-input-style,
+  .dropdown-style,
+  .form-textarea {
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+  }
+  .button-style-primary,
+  .button-style-secondary,
+  .enhanced-button {
+    padding: 0.9rem 1.6rem;
+    font-size: 1rem;
+  }
+  .sde-checkbox-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  /* SDE sections specific styling */
+  .sde-selection-section .card,
+  .selected-sdes-section .card {
+    padding: 1.5rem !important;
+    position: static !important; /* Remove sticky positioning */
+  }
+  
+  .sde-selection-section h3,
+  .selected-sdes-section h3 {
+    font-size: 1.3rem !important;
+    text-align: center;
+  }
+  
+  .sde-content-section h2 {
+    font-size: 1.5rem !important;
+    text-align: center;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  /* Make header flexible on mobile */
+  .sde-selection-section .card > div:first-child {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 1rem !important;
+  }
+  
+  .sde-selection-section .card > div:first-child > div {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  
+  /* Tab styling for mobile */
+  .sde-selection-tabs {
+    justify-content: center !important;
+    gap: 1rem !important;
+  }
+  
+  .sde-selection-tabs .tab-active,
+  .sde-selection-tabs .tab-inactive {
+    padding: 0.6rem 1.2rem !important;
+    font-size: 1rem !important;
+  }
+  
+  .form-group-checkbox {
+      padding: 0.6rem 0.8rem;
+  }
+  .form-group-checkbox label {
+      font-size: 0.9rem;
+  }
+  .selected-sde-item {
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
+  }
+  .small-button {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.8rem;
+  }
+
+  /* Responsive for new vertical layout */
+  .sde-layout-section {
+    flex-direction: column; /* Stack vertically on smaller screens */
+    gap: 2rem; /* Maintain vertical gap */
+  }
+}
+
+@media (max-width: 480px) {
+  .sde-catalogue-container {
+    padding: 1rem 0.25rem;
+  }
+  
+  .sde-catalogue-container > *:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
+  
+  .sde-main-layout {
+    gap: 1.25rem !important;
+    padding: 0;
+  }
+  
+  .sde-info-cards {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 0;
+  }
+  
+  .company-info-card,
+  .industry-filter-card {
+    padding: 1rem !important;
+    min-height: 80px !important;
+    margin: 0 0.25rem;
+  }
+  
+  .company-info-card h3,
+  .industry-filter-card h3 {
+    font-size: 0.95rem !important;
+    margin-bottom: 0.4rem !important;
+  }
+  
+  .company-info-card div,
+  .industry-filter-card div {
+    font-size: 0.9rem !important;
+  }
+  
+  .page-title {
+    font-size: 2rem;
+  }
+  .connect-description {
+    font-size: 1rem;
+  }
+  .card { /* Apply general card padding to all cards */
+    padding: 1.25rem 0.75rem;
+  }
+  .card-title {
+    font-size: 1.4rem;
+  }
+  .text-input-style,
+  .dropdown-style,
+  .form-textarea {
+    padding: 0.7rem 0.9rem;
+  }
+  .sde-checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-group-checkbox {
+      flex-direction: row;
+      align-items: center;
+  }
+  
+  /* Enhanced button responsive styles */
+  .enhanced-button {
+    padding: 0.8rem 1.4rem;
+    font-size: 0.95rem;
+    border-radius: 10px;
+  }
+  
+  .sde-checkbox-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  /* Ultra compact for mobile */
+  .sde-selection-section .card,
+  .selected-sdes-section .card {
+    padding: 1rem !important;
+  }
+  
+  .sde-selection-section h3,
+  .selected-sdes-section h3 {
+    font-size: 1.2rem !important;
+    text-align: center;
+  }
+  
+  .sde-content-section h2 {
+    font-size: 1.3rem !important;
+    text-align: center;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* Mobile tab styling */
+  .sde-selection-tabs {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+  }
+  
+  .sde-selection-tabs .tab-active,
+  .sde-selection-tabs .tab-inactive {
+    width: 100% !important;
+    max-width: 280px !important;
+    text-align: center !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.95rem !important;
+  }
+}
+
+/* ===== Add SDE Modal Styles ===== */
+.add-sde-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-sde-modal {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  padding: 3.5rem 2.5rem 2rem 2.5rem; /* Increased top padding */
+  width: 40vw;
+  max-width: 900px;
+  min-width: 340px;
+  min-height: 320px;
+  max-height: 80vh;
+  box-shadow: 0 4px 24px var(--box-shadow-color);
+  position: relative;
+  color: var(--text-color);
+  font-size: var(--font-size-medium);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  /* Hide scrollbar for Webkit browsers */
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) var(--card-background);
+}
+.add-sde-modal::-webkit-scrollbar {
+  width: 2px;
+  background: transparent;
+}
+.add-sde-modal::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 6px;
+}
+.add-sde-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Hide scrollbar completely (optional, uncomment if you want it invisible) */
+/*
+.add-sde-modal::-webkit-scrollbar {
+  display: none;
+}
+*/
+.add-sde-modal h2 {
+  margin-bottom: 1.2rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.add-sde-modal .form-group {
+  margin-bottom: 1rem;
+}
+.add-sde-modal label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--text-color-light);
+  font-size: 0.98rem;
+}
+.add-sde-modal .form-input {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--border-radius);
+  background: var(--input-background);
+  color: var(--input-text-color);
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+.add-sde-modal .form-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+.add-sde-modal .form-error {
+  color: var(--status-error);
+  margin-bottom: 0.7rem;
+  font-size: 0.97rem;
+}
+.add-sde-modal .modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+.add-sde-modal .modal-actions button {
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.add-sde-modal .modal-actions .cancel-btn {
+  background: var(--neutral-light, #bdbdbd);
+  color: var(--text-color);
+}
+.add-sde-modal .modal-actions .add-btn {
+  background: var(--accent-blue-dark, #2a7ae2);
+  color: var(--button-text-color);
+}
+.add-sde-modal .modal-actions .add-btn:disabled {
+  background: var(--button-disabled-background-color);
+  color: var(--button-disabled-text-color);
+  cursor: not-allowed;
+}
+
+
+.add-sde-fab {
+  position: fixed;
+  bottom: 2.2rem;
+  right: 2.2rem;
+  background: var(--accent-blue-darker, #1d5bbf);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  box-shadow: 0 2px 8px rgba(42,122,226,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 1200;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.add-sde-fab:hover {
+  background: var(--accent-blue-darker, #1d5bbf);
+  box-shadow: 0 4px 16px rgba(42,122,226,0.22);
+}
+
+.add-sde-fab-card {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.5rem;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  overflow: hidden;
+  transition: width 0.25s cubic-bezier(0.4,0,0.2,1), background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 0.7rem 0 0.7rem;
+}
+.add-sde-fab-card .add-sde-label {
+  opacity: 0;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  pointer-events: none;
+  transition: opacity 0.18s;
+}
+.add-sde-fab-card:hover {
+  width: 120px;
+  border-radius: 40px;
+  height: 27px;
+  background: var(--accent-blue-darker, #1d5bbf);
+}
+.add-sde-fab-card:hover .add-sde-label {
+  opacity: 1;
+}
+/* .add-sde-label{
+  opacity: 0;
+  visibility: hidden;
+} */
+ .add-sde-label:hover {
+  opacity: 1;
+  visibility: visible;
+ }
+ .add-sde-plus{
+  opacity: 1;
+  z-index: 1000;
+ }
+
+/* Professional scrollbar styles for SDE containers */
+.sde-selection-section ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sde-selection-section ::-webkit-scrollbar-track {
+  background: hsl(210 40% 96%);
+  border-radius: 4px;
+}
+
+.sde-selection-section ::-webkit-scrollbar-thumb {
+  background: hsl(220 13% 91%);
+  border-radius: 4px;
+  border: 1px solid hsl(210 40% 96%);
+}
+
+.sde-selection-section ::-webkit-scrollbar-thumb:hover {
+  background: hsl(198 88% 32%);
+}
+
+.selected-sdes-section ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.selected-sdes-section ::-webkit-scrollbar-track {
+  background: hsl(210 40% 96%);
+  border-radius: 4px;
+}
+
+.selected-sdes-section ::-webkit-scrollbar-thumb {
+  background: hsl(220 13% 91%);
+  border-radius: 4px;
+  border: 1px solid hsl(210 40% 96%);
+}
+
+.selected-sdes-section ::-webkit-scrollbar-thumb:hover {
+  background: hsl(198 88% 32%);
+}
+
+/* For Firefox scrollbar styling */
+.sde-selection-section,
+.selected-sdes-section {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(220 13% 91%) hsl(210 40% 96%);
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Success banner slide-in animation */
+@keyframes slideInFromTop {
+  0% { 
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

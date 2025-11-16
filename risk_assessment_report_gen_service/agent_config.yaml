@@ -1,0 +1,15 @@
+credentials:
+  openai_api_key_env: OPENAI_API_KEY
+database:
+  postgresql:
+    database: master_data_privacy
+    host: 34.131.224.110
+    password: data_privacy_db123_pass
+    port: 5432
+    sslmode: require
+    user: data_privacy_user
+  type: postgresql
+scanning:
+  content_sample_size: 100
+  max_file_size_mb: 50
+  perform_content_scan: true

@@ -1,0 +1,57 @@
+Backend API Endpoints in AI-Insight-Pro
+Overview of API Functionality
+[cite_start]The AI-Insight-Pro backend is powered by FastAPI and exposes a comprehensive set of API endpoints to manage data sources, trigger scans, retrieve risk insights, and generate reports[cite: 133, 158]. [cite_start]These APIs facilitate seamless integration with the frontend and other systems[cite: 134, 159].
+
+Key API Categories and Endpoints
+1. Data Source Management
+/api/connect (POST):
+- [cite_start]Function: Creates a new data source connection[cite: 136, 161].
+- [cite_start]Payload: Requires connection type (e.g., GCS, BigQuery, MySQL, PostgreSQL) and corresponding credentials[cite: 137, 162].
+/api/test-connection (POST):
+- [cite_start]Function: Validates the provided connection credentials without saving them[cite: 138, 163].
+- [cite_start]Payload: Same as /api/connect[cite: 138, 163].
+/api/connections (GET):
+- [cite_start]Function: Lists all registered data source connections[cite: 139, 164].
+- [cite_start]Response: Returns an array of connection objects with metadata[cite: 139, 164].
+/api/connections/{id} (DELETE):
+- [cite_start]Function: Removes a specific data source connection by its ID[cite: 140, 165].
+- [cite_start]Path Parameter: id (string) - The unique identifier of the connection to delete[cite: 141, 166].
+
+2. Scanning and Analysis
+/api/scan/start (POST):
+- [cite_start]Function: Initiates a new data scan job for specified data sources[cite: 142, 167].
+- [cite_start]Payload: Requires a list of connection IDs and optionally specific SDEs to focus on[cite: 143, 168].
+/api/scan/status/{job_id} (GET):
+- [cite_start]Function: Retrieves the current status and progress of a running scan job[cite: 144, 169].
+- [cite_start]Path Parameter: job_id (string) - The unique identifier of the scan job[cite: 145, 170].
+/api/scan/results/{scan_id} (GET):
+- [cite_start]Function: Fetches the detailed findings of a completed scan[cite: 146, 171].
+- [cite_start]Path Parameter: scan_id (string) - The unique identifier of the completed scan[cite: 147, 172].
+/api/risk/assessment (GET):
+- [cite_start]Function: Generates and retrieves the overall risk assessment based on the latest scan findings[cite: 148, 173].
+- [cite_start]Query Parameters: Can filter by data source, time range, or risk level[cite: 149, 174].
+
+3. Dashboard and Reporting
+/api/dashboard/metrics (GET):
+- [cite_start]Function: Provides key metrics and aggregated data for the dashboard[cite: 150, 175].
+/api/risk/analysis (GET):
+- [cite_start]Function: Offers a more detailed breakdown of risk analysis, including risk trends and distribution charts[cite: 151, 176].
+/api/report/generate (POST):
+- [cite_start]Function: Triggers the generation of a comprehensive report[cite: 152, 177].
+- [cite_start]Payload: Specifies report type, format (HTML, PDF), and relevant scan IDs[cite: 152, 177].
+/api/report/download/{report_id} (GET):
+- [cite_start]Function: Allows downloading a previously generated report[cite: 153, 178].
+- [cite_start]Path Parameter: report_id (string) - The unique identifier of the report to download[cite: 154, 179].
+
+4. SDE Management
+/api/sde (GET):
+- [cite_start]Function: Lists all available Sensitive Data Elements in the catalog[cite: 155, 180].
+/api/sde (POST):
+- [cite_start]Function: Adds a new custom SDE to the catalog[cite: 156, 181].
+- [cite_start]Payload: Requires SDE name, regex pattern, type, and risk classification[cite: 156, 181].
+/api/sde/{sde_id} (PUT):
+- [cite_start]Function: Updates an existing SDE's details[cite: 157, 182].
+- [cite_start]Path Parameter: sde_id (string) - The ID of the SDE to update[cite: 157, 182].
+/api/sde/{sde_id} (DELETE):
+- [cite_start]Function: Deletes an SDE from the catalog[cite: 157, 182].
+- [cite_start]Path Parameter: sde_id (string) - The ID of the SDE to delete[cite: 157, 182].

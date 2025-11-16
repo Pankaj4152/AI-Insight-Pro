@@ -1,0 +1,161 @@
+/* Report page main container */
+.report-container {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  padding: 2rem 1rem;
+  font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Content box */
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1.5px solid var(--border);
+}
+
+/* Header style */
+.report-header {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.report-header h1 {
+  font-size: 2rem;
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, var(--title-gradient-start), var(--title-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.profile-header-info {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+  color: var(--muted-foreground);
+  font-size: 1rem;
+}
+
+/* Section for dropdown and buttons */
+.download-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin-bottom: 2rem;
+}
+
+/* Dropdown styling with arrow */
+.dropdown {
+  appearance: none;
+  background: var(--input);
+  color: var(--foreground);
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  min-width: 180px;
+  transition: border-color 0.2s;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg fill='gray' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 16px;
+}
+
+.dropdown:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Buttons */
+.download-button {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  min-width: 180px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+.download-button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+.download-button:disabled {
+  background: var(--muted);
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+}
+
+/* Error message */
+.form-error {
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+  border: 1px solid var(--destructive);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  margin-bottom: 0.5rem;
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* Preview section */
+.report-preview {
+  width: 100%;
+  max-width: 700px;
+  background: var(--card);
+  color: var(--foreground);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  font-family: monospace;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  min-height: 40vh;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+  .report-header h1 {
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+  }
+  .download-button, .dropdown {
+    font-size: 0.95rem;
+    min-width: 120px;
+    padding: 0.5rem 0.7rem;
+  }
+  .report-preview {
+    padding: 1rem;
+    max-width: 98vw;
+  }
+}

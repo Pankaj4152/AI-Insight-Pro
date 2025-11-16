@@ -1,0 +1,41 @@
+/* src/Css/Section.css */
+.page-section {
+  min-height: calc(100vh - 60px); /* Full viewport height minus navbar height */
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--body-background-color); /* Use global background */
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-sizing: border-box; /* Include padding in height calc */
+}
+
+.page-section h1 {
+  font-family: var(--font-sans); /* Using sans-serif for main headings */
+  font-size: 3rem;
+  color: var(--heading-color);
+  margin-bottom: 20px;
+  max-width: 800px;
+}
+
+.page-section p {
+  font-family: var(--font-sans);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+@media (max-width: 600px) {
+  .page-section {
+    padding: 15px 2px;
+  }
+  .page-section h1 {
+    font-size: 1.3rem;
+  }
+  .page-section p {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,26 @@
+# AI-Insight-Pro Data Risk Intelligence Platform
+
+## 🧠 Project Overview
+[cite_start]**AI-Insight-Pro Data Risk Intelligence Platform** is a comprehensive AI-powered system designed to help businesses identify, assess, and manage data privacy risks across distributed data sources[cite: 1]. [cite_start]The platform acts as a privacy-aware AI system that performs automated data discovery, sensitive data detection, risk assessment, and compliance monitoring[cite: 1].
+
+---
+
+## 📌 **Core Purpose & Objectives**
+[cite_start]The platform is designed to help businesses **identify, assess, and manage data privacy risks** across distributed data sources[cite: 1]. It acts as a **privacy-aware AI-powered system** that performs:
+* [cite_start]**Data Discovery** from connected sources (e.g., PostgreSQL, BigQuery, GCS, MySQL) [cite: 1]
+* [cite_start]**Sensitive Data Element (SDE) Detection** [cite: 1]
+* [cite_start]**Risk Scoring and Confidence Calculation** [cite: 1]
+* [cite_start]**LLM-Generated Summaries** and **Business-Ready Reports** [cite: 1]
+* [cite_start]**Compliance Monitoring** aligned with frameworks like GDPR, HIPAA [cite: 1]
+
+---
+
+## 🧩 **Key Modules & Workflow**
+```mermaid
+graph LR
+    A[Login] --> A2[SDE Selection]
+    A2 --> A3[Model Registry]
+    A3 --> A4[Data Connection]
+    A4 --> A5[Dashboard]
+    A5 --> A6[Risk and Compliance]
+    A6 --> A7[Report Generation]

@@ -1,0 +1,24 @@
+# Frontend Overview
+
+The frontend is a React-based web application that provides a user interface for the AI-Insight-Pro Data Privacy and Ethics Risk Assessment System.
+
+It allows users to:
+- Log in and manage their profile
+- Select data domains and files for scanning
+- View and select Sensitive Data Elements (SDEs)
+- Trigger scans and view scan progress
+- Download and preview risk assessment reports (PDF, LaTeX, HTML)
+- View dashboards and risk summaries
+- Use the Discovery page to find and identify different types of data formats.
+
+## Key Features
+- Built with Create React App
+- Responsive UI for risk assessment workflow
+- Integrates with backend APIs for scanning, reporting, and risk management
+- Supports downloading reports in multiple formats
+- Provides a dashboard for risk scores, SDEs, and compliance status
+
+## Usage
+- Run with `npm start` for development
+- Connects to backend FastAPI endpoints for all data and report operations
+- Designed for extensibility and integration with additional AI/LLM features
