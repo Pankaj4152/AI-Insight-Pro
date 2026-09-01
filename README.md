@@ -1,179 +1,121 @@
 # AI-Insight-Pro
 
-**Advanced AI-Powered Data Analytics and Risk Assessment Platform**
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/FastAPI-0.104-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/License-Proprietary-blue?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge" alt="PRs Welcome" />
+</p>
 
-AI-Insight-Pro is a comprehensive platform designed for software development environment (SDE) selection, data store management, risk assessment, and compliance monitoring. This intelligent solution provides organizations with deep insights into their data infrastructure while ensuring security and compliance standards.
+> **Advanced AI-Powered Data Analytics, Risk Assessment & Compliance Platform**
 
-## 🚀 Project Overview
-
-AI-Insight-Pro streamlines the entire data analytics workflow from environment selection to compliance reporting, offering a unified platform for data discovery, risk assessment, and intelligent insights.
-
-### Key Capabilities
-- **SDE Selection**: Intelligent software development environment selection and configuration
-- **Model Inventory**: Comprehensive catalog and management of AI/ML models
-- **Multi-Data Store Connectivity**: Seamless integration with various data storage solutions
-- **Intelligent Discovery**: Automated file and data discovery across connected systems
-- **Interactive Dashboard**: Real-time visualization of scan findings and insights
-- **Risk Assessment**: Advanced security and compliance risk evaluation
-- **Compliance Reporting**: Automated generation of compliance reports
-- **AI Chatbot**: Natural language querying for data stores and findings
-
-## 🛠️ Technology Stack
-
-- **Python** (49%) - Backend services, data processing, and ML model integration
-- **JavaScript** (38.2%) - Frontend dashboard, interactive components, and real-time updates
-- **CSS** (12.3%) - Modern UI/UX design and responsive layouts
-- **Other** (0.5%) - Configuration files and supporting utilities
-
-## 🏗️ Architecture Overview
-
-```
-AI-Insight-Pro/
-├── sde_selection/          # SDE selection and configuration modules
-├── model_inventory/        # AI/ML model catalog and management
-├── data_connectors/        # Data store connection adapters
-├── discovery_engine/       # File and data discovery services
-├── dashboard/             # Interactive dashboard components
-├── risk_assessment/       # Security and risk evaluation engine
-├── compliance/           # Compliance reporting and monitoring
-└── chatbot/             # AI-powered query assistant
-```
-
-## 🔧 Core Features
-
-### 1. SDE Selection & Configuration
-- Automated environment analysis and recommendation
-- Custom configuration templates
-- Environment health monitoring
-- Performance optimization suggestions
-
-### 2. Model Inventory Management
-- Centralized model repository
-- Version control and lifecycle management
-- Model performance tracking
-- Deployment status monitoring
-
-### 3. Data Store Connections
-**Supported Data Stores:**
-- SQL Databases (PostgreSQL, MySQL, SQL Server)
-- NoSQL Databases (MongoDB, Cassandra, DynamoDB)
-- Cloud Storage (AWS S3, Azure Blob, Google Cloud Storage)
-- Data Warehouses (Snowflake, BigQuery, Redshift)
-- File Systems (HDFS, NFS, Local)
-
-### 4. Discovery Engine
-- Automated file scanning and cataloging
-- Metadata extraction and analysis
-- Data lineage tracking
-- Sensitive data identification
-
-### 5. Interactive Dashboard
-- Real-time scan progress monitoring
-- Visual analytics and insights
-- Customizable widgets and views
-- Export capabilities for reports
-
-### 6. Risk Assessment
-- Security vulnerability scanning
-- Data privacy risk evaluation
-- Compliance gap analysis
-- Risk scoring and prioritization
-
-### 7. Compliance Reporting
-- Automated compliance report generation
-- Support for multiple frameworks (GDPR, HIPAA, SOX, etc.)
-- Historical compliance tracking
-- Audit trail maintenance
-
-### 8. AI Chatbot Assistant
-- Natural language querying of data stores
-- Contextual answers about scan findings
-- Data discovery assistance
-- Compliance guidance
-
-## 🚀 Getting Started
-
-
-### Quick Start
-
-## 📊 Usage Guide
-
-### Setting Up Data Connections
-
-1. Navigate to **Data Store Connections**
-2. Select your data store type
-3. Provide connection credentials
-4. Test the connection
-5. Save and activate
-
-### Running Discovery Scans
-
-1. Go to **Discovery Engine**
-2. Select connected data stores
-3. Configure scan parameters
-4. Initiate the discovery process
-5. Monitor progress in real-time
-
-### Viewing Risk Assessment
-
-1. Access **Risk Assessment** module
-2. Review identified vulnerabilities
-3. Analyze risk scores and priorities
-4. Generate detailed risk reports
-
-### Generating Compliance Reports
-
-1. Navigate to **Compliance** section
-2. Select compliance framework
-3. Choose reporting period
-4. Generate and download reports
-
-### Using the AI Chatbot
-
-1. Open the **Chatbot** interface
-2. Ask questions about your data stores
-3. Query scan findings and insights
-4. Get compliance guidance
-
-## 🔒 Security Features
-
-- End-to-end encryption for data in transit
-- Secure credential storage and management
-- Role-based access control (RBAC)
-- Audit logging and monitoring
-- Data anonymization capabilities
-
-## 📈 Monitoring & Analytics
-
-- Real-time scanning progress
-- Performance metrics dashboard
-- Historical trend analysis
-- Custom alerting and notifications
-- Integration with monitoring tools
-
-## 🤝 Team
-
-- **Organization**: AIPlaneTech India
-- **Repository**: AIPlaneTechIndia/Team-A
-
-## 🛣️ Roadmap
-
-- [ ] Enhanced ML model integration
-- [ ] Advanced data lineage visualization
-- [ ] Real-time compliance monitoring
-- [ ] Extended chatbot capabilities
-- [ ] Mobile application support
-- [ ] API marketplace integration
-
-
-## 📄 License
-
-This project is proprietary software developed by AIPlaneTech India.
+AI-Insight-Pro is an enterprise-grade platform designed for software development environment (SDE) selection, data store connectivity, security risk assessment, and compliance monitoring. Powered by microservice architecture and intelligent AI agents, it provides deep data discovery, automated risk scoring, and interactive compliance reporting.
 
 ---
 
-**Last Updated**: August 17, 2025  
-**Version**: 1.0.0  
-**Maintained by**: TEAM -A AIPlaneTech India
+## 🚀 Key Capabilities
 
-⭐ **AI-Insight-Pro** - Transforming Data Analytics with Artificial Intelligence
+- 🤖 **AI Chatbot Assistants**: Interactive query engines for data store findings, compliance guidance, and risk inspection.
+- 🔌 **Multi-Data Store Connectivity**: Connectors service integrating PostgreSQL, MySQL, Google BigQuery, and Google Cloud Storage.
+- 🛡️ **Risk Assessment Engine**: Automated scanning for vulnerabilities, data privacy risks, and security score generation.
+- 📜 **Compliance Reporting**: Standardized report generation aligned with security frameworks (GDPR, HIPAA, SOC2).
+- 🔍 **Automated Data Discovery**: Intelligent crawling and metadata cataloging across connected data infrastructure.
+- 📊 **Interactive Dashboard**: Modern React dashboard for real-time progress visualization and insights.
+
+---
+
+## 🏗️ Architecture & Directory Overview
+
+```
+AI-Insight-Pro/
+├── Frontend/                           # Interactive React 19 web dashboard
+├── connectors-service/                 # FastAPI service for multi-DB connectivity (SQL/NoSQL/Cloud)
+├── login-system/                       # Authentication & user management service
+├── compliance/                         # Compliance auditing & framework evaluation module
+├── risk_assessment_report_gen_service/ # Automated risk assessment & PDF report generation service
+├── client_chatbot/                     # Client-facing AI conversational assistant
+├── website-chatbot/                    # Public site chatbot module
+└── agents/                             # Autonomous AI agents for automated data discovery & workflows
+```
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technology |
+|---|---|
+| **Frontend UI** | React 19, React Router v7, Lucide Icons, Chart.js / Recharts |
+| **Backend Services** | Python 3.10+, FastAPI, Uvicorn, Pydantic |
+| **Data Connectors** | `psycopg2-binary`, `mysql-connector-python`, `google-cloud-bigquery`, `google-cloud-storage` |
+| **Data Processing & ML** | Python Data Science Stack, Pandas, Custom AI Agents |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **Node.js** v18.0 or higher
+- **Python** v3.10 or higher
+- **pip** package manager
+
+---
+
+### 1️⃣ Setting Up the Frontend
+
+```bash
+# Navigate to the Frontend directory
+cd Frontend
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+```
+The dashboard will run locally at `http://localhost:3000`.
+
+---
+
+### 2️⃣ Setting Up the Connectors Service (Backend)
+
+```bash
+# Navigate to the connectors service
+cd connectors-service
+
+# Create and activate virtual environment (Optional but recommended)
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install required dependencies
+pip install -r requirements.txt
+
+# Launch the FastAPI service
+uvicorn app.main:app --reload
+```
+The API documentation will be available at `http://localhost:8000/docs`.
+
+---
+
+## 🔒 Security & Compliance
+
+- **Role-Based Access Control (RBAC)**: Secure access points integrated via `login-system`.
+- **Encrypted Connectors**: Secure credential management for data storage integrations.
+- **Audit Logging**: Traceability across all automated risk and discovery scans.
+
+---
+
+## 🤝 Team & Organization
+
+- **Organization**: AIPlaneTech India
+- **Maintained by**: Team A - AIPlaneTech India
+
+---
+
+## 📄 License
+
+Proprietary Software - Developed by AIPlaneTech India. All rights reserved.
